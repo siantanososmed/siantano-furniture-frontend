@@ -4,6 +4,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import TanstackQueryProvider from "@/components/tanstack-query/tanstack-query-provider";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 type Props = {
   children: React.ReactNode;
@@ -23,11 +24,17 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
+      <GoogleTagManager
+        gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER as string}
+      />
       <body className="antialiased">
         <NextIntlClientProvider>
           <TanstackQueryProvider>{children}</TanstackQueryProvider>
         </NextIntlClientProvider>
       </body>
+      <GoogleAnalytics
+        gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string}
+      />
     </html>
   );
 }
