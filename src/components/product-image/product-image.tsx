@@ -6,6 +6,8 @@ import {
   type CarouselApi,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -121,7 +123,7 @@ export default function ProductImage({ data }: ProductImageProps) {
 
   return (
     <div className="space-y-3 md:max-w-64 lg:max-w-[450px]">
-      <div className="size-full md:size-64 lg:size-[450px] aspect-square">
+      <div className="size-full md:size-64 lg:size-[450px] aspect-square group">
         <Carousel setApi={setApi}>
           <CarouselContent>
             {data.map((item) => (
@@ -139,6 +141,8 @@ export default function ProductImage({ data }: ProductImageProps) {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious className="left-2 !invisible group-hover:!visible transition-all" />
+          <CarouselNext className="right-2 !invisible group-hover:!visible transition-all" />
         </Carousel>
       </div>
 
