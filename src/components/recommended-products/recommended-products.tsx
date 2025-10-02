@@ -18,7 +18,7 @@ export default function RecommendedProducts({
   const { ref, cols } = useGridColumns();
 
   return (
-    <section className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 space-y-6 my-6">
+    <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 my-6">
       <div className="text-3xl font-semibold">Recommended Products</div>
       <Carousel>
         <CarouselContent>
@@ -26,7 +26,7 @@ export default function RecommendedProducts({
             <CarouselItem key={index}>
               <div
                 ref={index === 0 ? ref : null}
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-4"
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-4"
               >
                 {page.map((product) => (
                   <RecommendedProductCard

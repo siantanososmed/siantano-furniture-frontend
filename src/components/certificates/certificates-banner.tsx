@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function CertificatesBanner({ story }: { story?: OurStoryDto }) {
   return (
     <div className="bg-primary w-full">
-      <div className="max-w-screen-lg mx-auto px-4 py-10 sm:px-6 lg:px-8 h-full gap-10 text-primary-foreground flex flex-row justify-center-safe flex-wrap">
+      <div className="max-w-screen-xl mx-auto px-4 py-10 sm:px-6 lg:px-8 h-full gap-10 text-primary-foreground flex flex-row justify-center-safe flex-wrap">
         {story?.certificates.map((c) => (
           <div
             key={c.documentId}

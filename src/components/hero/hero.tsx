@@ -2,7 +2,6 @@ import { GlobeIcon, MapPinIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "@/i18n/navigation";
-import { getCldVideoUrl } from "next-cloudinary";
 
 export default function Hero({
   videoUrl = "",
@@ -25,10 +24,7 @@ export default function Hero({
               playsInline
               disablePictureInPicture
               controlsList="nodownload"
-              src={getCldVideoUrl({
-                src: videoUrl,
-                width: 1920,
-              })}
+              src={videoUrl}
               className="object-cover w-full h-full"
             />
           )}

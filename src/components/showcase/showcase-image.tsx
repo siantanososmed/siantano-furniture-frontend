@@ -16,7 +16,13 @@ export default function ShowcaseImage({
         gridRowEnd: 21,
       }}
     >
-      <Image src={imageUrl} alt={imageAlt} width={1920} height={1080} />
+      <Image
+        src={imageUrl}
+        alt={imageAlt}
+        width={1920}
+        height={1080}
+        className="aspect-video"
+      />
     </div>
   );
 }

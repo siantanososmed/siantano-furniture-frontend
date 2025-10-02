@@ -27,7 +27,7 @@ export default async function ProductDetail({
     product.product_colors[0];
 
   return (
-    <section className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
+    <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
       <div className="flex flex-col md:flex-row gap-5">
         <div className="block md:hidden space-y-3">
           <h1 className="text-3xl font-bold">{product.name}</h1>

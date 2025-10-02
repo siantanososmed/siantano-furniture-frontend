@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav className="h-16 bg-background sticky top-0 shadow border z-10">
-      <div className="h-full flex items-center justify-between max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="h-full flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
           <Logo />
 
@@ -40,22 +40,22 @@ const Navbar = () => {
             value={locale}
             onValueChange={handleLocaleChange}
           >
-            <SelectTrigger className="w-20">
+            <SelectTrigger className="w-[77px]">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="w-fit min-w-0">
+            <SelectContent className="w-fit min-w-0" align={"end"}>
               <SelectGroup>
                 <SelectLabel className="sr-only">Language</SelectLabel>
                 <SelectItem value="en">
                   <div className="flex items-center gap-2">
                     <span className="fi fi-gb h-4 w-4 border"></span>
-                    <span className="sr-only">English</span>
+                    <span>English</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="id">
                   <div className="flex items-center gap-2">
                     <span className="fi fi-id h-4 w-4 border"></span>
-                    <span className="sr-only">Bahasa Indonesia</span>
+                    <span>Bahasa Indonesia</span>
                   </div>
                 </SelectItem>
               </SelectGroup>

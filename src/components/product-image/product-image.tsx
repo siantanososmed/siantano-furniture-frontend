@@ -120,18 +120,18 @@ export default function ProductImage({ data }: ProductImageProps) {
   }, [api, onSelect]);
 
   return (
-    <div className="space-y-3 max-w-96">
-      <div className="size-full md:size-64 lg:size-96 aspect-square">
+    <div className="space-y-3 md:max-w-64 lg:max-w-[450px]">
+      <div className="size-full md:size-64 lg:size-[450px] aspect-square">
         <Carousel setApi={setApi}>
           <CarouselContent>
             {data.map((item) => (
               <CarouselItem key={item.id}>
-                <div className="size-full aspect-square md:size-64 lg:size-96 flex items-center justify-center border shadow p-0.5">
+                <div className="size-full aspect-square md:size-64 lg:size-[450px] flex items-center justify-center border shadow p-0.5">
                   <Image
                     src={item.url}
                     alt={item.alternativeText || "Product Image"}
-                    width={400}
-                    height={400}
+                    width={1000}
+                    height={1000}
                     className="max-w-full max-h-full object-contain"
                     priority={true}
                   />
