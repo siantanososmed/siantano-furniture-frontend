@@ -40,7 +40,7 @@ const Navbar = () => {
             value={locale}
             onValueChange={handleLocaleChange}
           >
-            <SelectTrigger className="w-[77px]">
+            <SelectTrigger className="w-20">
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="w-fit min-w-0" align={"end"}>
@@ -48,14 +48,14 @@ const Navbar = () => {
                 <SelectLabel className="sr-only">Language</SelectLabel>
                 <SelectItem value="en">
                   <div className="flex items-center gap-2">
-                    <span className="fi fi-gb h-4 w-4 border"></span>
-                    <span>English</span>
+                    {/*<span className="fi fi-gb h-4 w-4 border"></span>*/}
+                    <span>EN</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="id">
                   <div className="flex items-center gap-2">
-                    <span className="fi fi-id h-4 w-4 border"></span>
-                    <span>Bahasa Indonesia</span>
+                    {/*<span className="fi fi-id h-4 w-4 border"></span>*/}
+                    <span>ID</span>
                   </div>
                 </SelectItem>
               </SelectGroup>

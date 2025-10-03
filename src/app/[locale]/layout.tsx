@@ -4,7 +4,8 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import TanstackQueryProvider from "@/components/tanstack-query/tanstack-query-provider";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 type Props = {
   children: React.ReactNode;
@@ -31,10 +32,8 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider>
           <TanstackQueryProvider>{children}</TanstackQueryProvider>
         </NextIntlClientProvider>
+        <SpeedInsights />
       </body>
-      <GoogleAnalytics
-        gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string}
-      />
     </html>
   );
 }
