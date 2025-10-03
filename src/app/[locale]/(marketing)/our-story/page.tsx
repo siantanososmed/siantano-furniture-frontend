@@ -6,7 +6,9 @@ import { getOurStory } from "@/actions/action";
 
 export default async function OurStory() {
   const locale = await getLocale();
-  const story = await getOurStory({ locale });
+  const [storyPromise] = await Promise.allSettled([getOurStory({ locale })]);
+
+  const story = storyPromise.status === "fulfilled" ? storyPromise.value : null;
 
   return (
     <>

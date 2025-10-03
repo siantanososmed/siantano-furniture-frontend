@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  productionBrowserSourceMaps: true,
 };
 
 const withNextIntl = createNextIntlPlugin();
