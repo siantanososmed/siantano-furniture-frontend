@@ -1,6 +1,8 @@
 "use client";
 import "./global-error.css";
 import { useEffect } from "react";
+import * as Sentry from "@sentry/nextjs";
+import Error from "next/error";
 
 export default function GlobalError({
   error,
@@ -11,6 +13,7 @@ export default function GlobalError({
 }) {
   useEffect(() => {
     console.error("Global error occurred:", error);
+    Sentry.captureException(error);
   }, [error]);
 
   return (
@@ -32,7 +35,7 @@ export default function GlobalError({
             </div>
             <h2>Something went wrong!</h2>
             <p>
-              {error.message || "An unexpected error has occurred."}
+              {"An unexpected error has occurred."}
               {error.digest && (
                 <span className="digest-id">Error ID: {error.digest}</span>
               )}

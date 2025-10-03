@@ -1,7 +1,7 @@
-import axios from "axios";
+import httpClient from "@/lib/http";
 
 export async function getHero({ locale }: { locale: string }) {
-  const response = await axios.get<ResponseDto<HeroDto>>(
+  const response = await httpClient.get<ResponseDto<HeroDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/hero`,
     {
       params: {
@@ -19,7 +19,7 @@ export async function getHero({ locale }: { locale: string }) {
 }
 
 export async function getRecommendedProducts({ locale }: { locale: string }) {
-  const response = await axios.get<ResponseDto<ProductCollectionDto>>(
+  const response = await httpClient.get<ResponseDto<ProductCollectionDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/recommended-product`,
     {
       params: {
@@ -42,7 +42,7 @@ export async function getRecommendedProducts({ locale }: { locale: string }) {
 }
 
 export async function getShowcase({ locale }: { locale: string }) {
-  const response = await axios.get<PaginatedResponseDto<ShowcaseImageDto>>(
+  const response = await httpClient.get<PaginatedResponseDto<ShowcaseImageDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/showcase-images`,
     {
       params: {
@@ -73,7 +73,7 @@ export async function getShowcase({ locale }: { locale: string }) {
 }
 
 export async function getOurStory({ locale }: { locale: string }) {
-  const response = await axios.get<ResponseDto<OurStoryDto>>(
+  const response = await httpClient.get<ResponseDto<OurStoryDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/our-story`,
     {
       params: {
@@ -101,7 +101,7 @@ export async function getCategories({
   locale: string;
   quality?: string;
 }) {
-  const response = await axios.get<PaginatedResponseDto<CategoryDto>>(
+  const response = await httpClient.get<PaginatedResponseDto<CategoryDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/categories`,
     {
       params: {
@@ -125,7 +125,7 @@ export async function getCategories({
 }
 
 export async function getMaterialOptions() {
-  const response = await axios.get<PaginatedResponseDto<MaterialDto>>(
+  const response = await httpClient.get<PaginatedResponseDto<MaterialDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/materials`,
     {
       params: {
@@ -138,7 +138,7 @@ export async function getMaterialOptions() {
 }
 
 export async function getColorOptions() {
-  const response = await axios.get<PaginatedResponseDto<ColorDto>>(
+  const response = await httpClient.get<PaginatedResponseDto<ColorDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/colors`,
     {
       params: {
@@ -151,7 +151,7 @@ export async function getColorOptions() {
 }
 
 export async function getFinishOptions() {
-  const response = await axios.get<PaginatedResponseDto<FinishDto>>(
+  const response = await httpClient.get<PaginatedResponseDto<FinishDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/finishings`,
     {
       params: {
@@ -170,7 +170,7 @@ export async function getProduct({
   slug: string;
   locale: string;
 }) {
-  const response = await axios.get<ResponseDto<ProductDetailDto>>(
+  const response = await httpClient.get<ResponseDto<ProductDetailDto>>(
     `${process.env.NEXT_PUBLIC_API_URL}/product/slug/${slug}`,
     {
       params: {

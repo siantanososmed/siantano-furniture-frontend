@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import TanstackQueryProvider from "@/components/tanstack-query/tanstack-query-provider";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import * as Sentry from "@sentry/nextjs";
 
 type Props = {
   children: React.ReactNode;
@@ -15,6 +16,9 @@ type Props = {
 export const metadata: Metadata = {
   title: "Siantano Furniture",
   description: "Your one-stop shop for quality furniture",
+  other: {
+    ...Sentry.getTraceData(),
+  },
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
