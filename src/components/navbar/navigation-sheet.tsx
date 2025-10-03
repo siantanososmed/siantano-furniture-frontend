@@ -9,10 +9,11 @@ import {
 import { Menu } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "./logo";
-import { MenuItem, menuItems } from "@/components/navbar/config";
+import { MenuItem, useMenuItems } from "@/components/navbar/config";
 import { Fragment } from "react";
 
 export const NavigationSheet = () => {
+  const menuItems: MenuItem[] = useMenuItems();
   return (
     <Sheet>
       <SheetTrigger asChild>

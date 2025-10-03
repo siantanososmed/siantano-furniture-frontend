@@ -9,6 +9,7 @@ import {
 import RecommendedProductCard from "@/components/recommended-products/recommended-product-card";
 import { createGridPages } from "@/lib/utils";
 import { useGridColumns } from "@/hooks/use-grid-columns";
+import { useTranslations } from "next-intl";
 
 export default function RecommendedProducts({
   products,
@@ -16,10 +17,11 @@ export default function RecommendedProducts({
   products: ProductDto[];
 }) {
   const { ref, cols } = useGridColumns();
+  const t = useTranslations("Home");
 
   return (
     <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 my-6">
-      <div className="text-3xl font-semibold">Recommended Products</div>
+      <div className="text-3xl font-semibold">{t("recommendedProducts")}</div>
       <Carousel>
         <CarouselContent>
           {createGridPages(products, cols, 1).map((page, index) => (

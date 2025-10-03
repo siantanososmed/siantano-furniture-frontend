@@ -14,19 +14,22 @@ import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
 import { LucideIcon } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import React from "react";
-import { MenuItem, menuItems } from "@/components/navbar/config";
+import { MenuItem, useMenuItems } from "@/components/navbar/config";
 
-export const NavMenu = (props: NavigationMenuProps) => (
-  <NavigationMenu {...props}>
-    <NavigationMenuList className="gap-0 space-x-0 text-sm">
-      {menuItems.map((menuItem) => (
-        <React.Fragment key={menuItem.title}>
-          {renderMenu(menuItem)}
-        </React.Fragment>
-      ))}
-    </NavigationMenuList>
-  </NavigationMenu>
-);
+export const NavMenu = (props: NavigationMenuProps) => {
+  const menuItems: MenuItem[] = useMenuItems();
+  return (
+    <NavigationMenu {...props}>
+      <NavigationMenuList className="gap-0 space-x-0 text-sm">
+        {menuItems.map((menuItem) => (
+          <React.Fragment key={menuItem.title}>
+            {renderMenu(menuItem)}
+          </React.Fragment>
+        ))}
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+};
 
 const renderMenu = (menu: MenuItem) => {
   if (!menu.submenu || !menu.submenu.length) {

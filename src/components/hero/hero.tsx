@@ -2,8 +2,9 @@ import { GlobeIcon, MapPinIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export default function Hero({
+export default async function Hero({
   videoUrl = "",
   title = "",
   description = "",
@@ -12,6 +13,8 @@ export default function Hero({
   title?: string;
   description?: string;
 }) {
+  const t = await getTranslations("Home");
+
   return (
     <>
       <section className="relative">
@@ -45,7 +48,12 @@ export default function Hero({
                 <Button size="lg" className="rounded-full text-base" asChild>
                   <Link href={{ pathname: "/", query: { type: "export" } }}>
                     <GlobeIcon className="text-blue-500" />
-                    Export <span className="hidden md:contents">Products</span>
+                    <span className="hidden md:contents">
+                      {t("exportProducts.long")}
+                    </span>
+                    <span className="md:hidden">
+                      {t("exportProducts.short")}
+                    </span>
                   </Link>
                 </Button>
                 <Button
@@ -56,7 +64,12 @@ export default function Hero({
                 >
                   <Link href={{ pathname: "/", query: { type: "local" } }}>
                     <MapPinIcon className="text-green-500" />
-                    Local <span className="hidden md:contents">Products</span>
+                    <span className="hidden md:contents">
+                      {t("localProducts.long")}
+                    </span>
+                    <span className="md:hidden">
+                      {t("localProducts.short")}
+                    </span>
                   </Link>
                 </Button>
               </div>

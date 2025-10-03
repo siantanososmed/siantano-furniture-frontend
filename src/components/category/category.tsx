@@ -10,6 +10,7 @@ import { ChevronRightIcon } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { createGridPages } from "@/lib/utils";
 import { useGridColumns } from "@/hooks/use-grid-columns";
+import { useTranslations } from "next-intl";
 
 export default function Category({
   categories,
@@ -18,18 +19,19 @@ export default function Category({
 }) {
   const search = useSearchParams();
   const { ref, cols } = useGridColumns();
+  const t = useTranslations("Home");
   const type =
     search.get("type")?.toLowerCase() === "local" ? "local" : "export";
 
   return (
     <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
       <div className="inline-flex justify-between w-full items-center">
-        <span className="text-3xl font-semibold">Category</span>
+        <span className="text-3xl font-semibold">{t("catalog")}</span>
         <Link
           href={"/catalog/" + type}
           className="inline-flex flex-row items-end gap-1 text-sm font-medium text-primary hover:underline cursor-pointer"
         >
-          Lihat lainnya <ChevronRightIcon className="size-4" />
+          {t("seeMore")} <ChevronRightIcon className="size-4" />
         </Link>
       </div>
 

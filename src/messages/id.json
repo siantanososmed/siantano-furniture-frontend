@@ -1,5 +1,58 @@
 {
-  "Index": {
-    "title": "Halo world!"
+  "Navbar": {
+    "home": "Beranda",
+    "ourStory": "Kisah Kami",
+    "catalog": {
+      "title": "Katalog",
+      "dropdown": {
+        "exportProducts": {
+          "title": "Produk Ekspor",
+          "description": "Produk berkualitas tinggi untuk pasar internasional"
+        },
+        "localProducts": {
+          "title": "Produk Lokal",
+          "description": "Produk premium yang disesuaikan untuk kebutuhan lokal"
+        }
+      }
+    }
+  },
+  "Home": {
+    "exportProducts": {
+      "long": "Produk Ekspor",
+      "short": "Ekspor"
+    },
+    "localProducts": {
+      "long": "Produk Lokal",
+      "short": "Lokal"
+    },
+    "catalog": "Katalog",
+    "seeMore": "Lihat Lebih",
+    "recommendedProducts": "Produk Rekomendasi",
+    "showcases": "Etalase"
+  },
+  "OurStory": {
+    "ourStory": "Kisah Kami"
+  },
+  "Catalog": {
+    "allCategories": "Semua Kategori",
+    "localProducts": "Produk Lokal",
+    "exportProducts": "Produk Ekspor",
+    "filter": "Saring",
+    "materials": "Material",
+    "colors": "Warna",
+    "finishes": "Finishing"
+  },
+  "Product": {
+    "category": "Kategori",
+    "color": "Warna",
+    "material": "Material",
+    "finish": "Finishing",
+    "dimensions": "Dimensi",
+    "weight": "Berat",
+    "productNotFound": "Produk tidak tersedia",
+    "quality": {
+      "local": "Lokal",
+      "export": "Ekspor"
+    }
   }
 }

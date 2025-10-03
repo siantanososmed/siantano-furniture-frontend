@@ -10,6 +10,7 @@ import CheckboxesWithLabel from "@/components/checkboxes/checkboxes-with-label";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { queryUrlToObject } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 type FilterProductProps = {
   materials: MaterialDto[];
@@ -25,6 +26,7 @@ export default function FilterProduct({
   const router = useRouter();
   const pathname = usePathname();
   const query = useSearchParams();
+  const t = useTranslations("Catalog");
 
   const handleOnchange = (
     type: "materials" | "finishes" | "colors",
@@ -62,7 +64,7 @@ export default function FilterProduct({
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="ghost">
-          Filter
+          {t("filter")}
           <Funnel className="size-4" />
         </Button>
       </PopoverTrigger>
@@ -71,7 +73,7 @@ export default function FilterProduct({
         className="space-y-5 overflow-y-auto max-h-96"
       >
         <div className="space-y-3">
-          <div className="font-bold">Material</div>
+          <div className="font-bold">{t("materials")}</div>
           {materials.map((material) => (
             <CheckboxesWithLabel
               key={material.documentId}
@@ -84,7 +86,7 @@ export default function FilterProduct({
           ))}
         </div>
         <div className="space-y-3">
-          <div className="font-bold">Color</div>
+          <div className="font-bold">{t("colors")}</div>
           {colors.map((color) => (
             <CheckboxesWithLabel
               key={color.documentId}
@@ -97,7 +99,7 @@ export default function FilterProduct({
           ))}
         </div>
         <div className="space-y-3">
-          <div className="font-bold">Finish</div>
+          <div className="font-bold">{t("finishes")}</div>
           {finishes.map((finish) => (
             <CheckboxesWithLabel
               key={finish.documentId}

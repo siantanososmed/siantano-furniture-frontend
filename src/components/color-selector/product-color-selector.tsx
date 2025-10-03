@@ -4,6 +4,7 @@ import Image from "next/image";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { cn, queryUrlToObject } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export default function ProductColorSelector({
   colors,
@@ -15,6 +16,7 @@ export default function ProductColorSelector({
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const t = useTranslations("Product");
 
   const handleColorChange = (colorSlug: string) => {
     router.push({
@@ -29,7 +31,8 @@ export default function ProductColorSelector({
   return (
     <div className="space-y-2">
       <div className="block">
-        Color: <span className="font-semibold">{selectedColor.color.name}</span>
+        {t("color")}:{" "}
+        <span className="font-semibold">{selectedColor.color.name}</span>
       </div>
       <div className="flex flex-row flex-wrap gap-5">
         {colors.map((color) => (

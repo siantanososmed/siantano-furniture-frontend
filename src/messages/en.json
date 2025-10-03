@@ -1,5 +1,58 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "Navbar": {
+    "home": "Home",
+    "ourStory": "Our Story",
+    "catalog": {
+      "title": "Catalog",
+      "dropdown": {
+        "exportProducts": {
+          "title": "Export Products",
+          "description": "High-quality products for international markets"
+        },
+        "localProducts": {
+          "title": "Local Products",
+          "description": "Premium products tailored for local needs"
+        }
+      }
+    }
+  },
+  "Home": {
+    "exportProducts": {
+      "long": "Export Products",
+      "short": "Export"
+    },
+    "localProducts": {
+      "long": "Local Products",
+      "short": "Local"
+    },
+    "catalog": "Catalog",
+    "seeMore": "See More",
+    "recommendedProducts": "Recommended Products",
+    "showcases": "Showcases"
+  },
+  "OurStory": {
+    "ourStory": "Our Story"
+  },
+  "Catalog": {
+    "allCategories": "All Categories",
+    "localProducts": "Produk Lokal",
+    "exportProducts": "Produk Ekspor",
+    "filter": "Filter",
+    "materials": "Materials",
+    "colors": "Colors",
+    "finishes": "Finishes"
+  },
+  "Product": {
+    "category": "Category",
+    "color": "Color",
+    "material": "Materials",
+    "finish": "Finishes",
+    "dimensions": "Dimension",
+    "weight": "Weight",
+    "productNotFound": "Product not unavailable",
+    "quality": {
+      "local": "Local",
+      "export": "Export"
+    }
   }
 }

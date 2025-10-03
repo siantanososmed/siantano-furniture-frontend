@@ -9,6 +9,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { LayoutGrid } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function CatalogCategory({
   categories,
@@ -17,6 +18,7 @@ export default function CatalogCategory({
 }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const t = useTranslations("Catalog");
 
   const restCategory = Object.fromEntries(searchParams.entries());
   delete restCategory.category;
@@ -39,7 +41,7 @@ export default function CatalogCategory({
             <div className="size-16 bg-gray-400/20 p-3 rounded-lg flex items-center justify-center">
               <LayoutGrid className="size-full" strokeWidth={1} />
             </div>
-            <span className="leading-none grow">All Categories</span>
+            <span className="leading-none grow">{t("allCategories")}</span>
           </Link>
         </CarouselItem>
         {categories.map((category, i) => (

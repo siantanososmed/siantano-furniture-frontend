@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import CategoryBreadcrumb from "@/components/breadcrumb/category-breadcrumb";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { getQueryClient } from "@/components/tanstack-query/get-query-client";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import CatalogCategory from "@/components/category/catalog-category";
@@ -32,6 +32,7 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
   const { type } = await params;
   const { category, ...restSearchParams } = await searchParams;
   const locale = await getLocale();
+  const t = await getTranslations("Catalog");
 
   if (!allowedTypes.includes(type)) {
     notFound();
@@ -56,7 +57,7 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
 
   const pageBreadcrumb =
     categories?.data.find((cat) => cat.slug === category)?.name ||
-    "All Categories";
+    t("allCategories");
 
   const queryClient = getQueryClient();
   await queryClient.prefetchInfiniteQuery(
@@ -86,7 +87,8 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
         <CategoryBreadcrumb
           items={[
             {
-              label: type === "local" ? "Local Products" : "Export Products",
+              label:
+                type === "local" ? t("localProducts") : t("exportProducts"),
               href: {
                 pathname: `/catalog/${type}`,
                 query: {
