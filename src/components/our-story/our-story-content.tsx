@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import DOMPurify from "isomorphic-dompurify";
 
 export default async function OurStoryContent({
   story,
@@ -11,7 +12,9 @@ export default async function OurStoryContent({
       <div className="text-3xl font-semibold">{t("ourStory")}</div>
       <article
         className="ck-content ckeditor-result"
-        dangerouslySetInnerHTML={{ __html: story?.content ?? "" }}
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(story?.content ?? ""),
+        }}
       ></article>
     </section>
   );

@@ -9,6 +9,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import ProductColorSelector from "@/components/color-selector/product-color-selector";
 import { getProduct } from "@/actions/action";
 import { getFulfilledValue } from "@/lib/utils";
+import DOMPurify from "isomorphic-dompurify";
 
 export default async function ProductDetail({
   params,
@@ -46,7 +47,7 @@ export default async function ProductDetail({
           </div>
         </div>
 
-        <ProductImage data={selectedColor.productMedia} />
+        <ProductImage data={selectedColor?.productMedia || []} />
 
         <div className="grow space-y-3">
           <div className="hidden md:block space-y-3">
@@ -58,13 +59,15 @@ export default async function ProductDetail({
           </div>
 
           <ProductColorSelector
-            colors={product.product_colors}
+            colors={product?.product_colors || []}
             selectedColor={selectedColor}
           />
 
           <div
             className="space-y-3 min-h-80 ckeditor-content ckeditor-result"
-            dangerouslySetInnerHTML={{ __html: product.description }}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(product.description),
+            }}
           ></div>
           <div className="space-y-3">
             <span className="font-semibold">{t("material")}:</span>
@@ -86,7 +89,9 @@ export default async function ProductDetail({
               <AccordionContent>
                 <div
                   className="ck-content ckeditor-result"
-                  dangerouslySetInnerHTML={{ __html: product.dimension }}
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(product.dimension),
+                  }}
                 ></div>
               </AccordionContent>
             </AccordionItem>
@@ -97,7 +102,9 @@ export default async function ProductDetail({
               <AccordionContent>
                 <div
                   className="ck-content ckeditor-result"
-                  dangerouslySetInnerHTML={{ __html: product.weight }}
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(product.weight),
+                  }}
                 ></div>
               </AccordionContent>
             </AccordionItem>

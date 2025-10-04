@@ -11,7 +11,7 @@ export default function ProductColorSelector({
   selectedColor,
 }: {
   colors: ProductColorDto[];
-  selectedColor: ProductColorDto;
+  selectedColor?: ProductColorDto;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -32,7 +32,7 @@ export default function ProductColorSelector({
     <div className="space-y-2">
       <div className="block">
         {t("color")}:{" "}
-        <span className="font-semibold">{selectedColor.color.name}</span>
+        <span className="font-semibold">{selectedColor?.color.name}</span>
       </div>
       <div className="flex flex-row flex-wrap gap-5">
         {colors.map((color) => (
@@ -40,7 +40,7 @@ export default function ProductColorSelector({
             key={color.documentId}
             className={cn(
               "size-16 hover:scale-105 transition cursor-pointer",
-              selectedColor.color.slug === color.color.slug &&
+              selectedColor?.color.slug === color.color.slug &&
                 "border border-black"
             )}
             onClick={() => handleColorChange(color.color.slug)}
