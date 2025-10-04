@@ -9,6 +9,7 @@ import {
   getRecommendedProducts,
   getShowcase,
 } from "@/actions/action";
+import { getFulfilledValue } from "@/lib/utils";
 
 export default async function Home({
   searchParams,
@@ -30,15 +31,13 @@ export default async function Home({
     getShowcase({ locale }),
   ]);
 
-  const categories =
-    categoriesPromise.status === "fulfilled" ? categoriesPromise.value : null;
-  const hero = heroPromise.status === "fulfilled" ? heroPromise.value : null;
-  const recommendedProducts =
-    recommendedProductsPromise.status === "fulfilled"
-      ? recommendedProductsPromise.value
-      : null;
-  const showcase =
-    showcasePromise.status === "fulfilled" ? showcasePromise.value : null;
+  const categories = getFulfilledValue(categoriesPromise, "home.categories");
+  const hero = getFulfilledValue(heroPromise, "home.hero");
+  const recommendedProducts = getFulfilledValue(
+    recommendedProductsPromise,
+    "home.recommendedProducts"
+  );
+  const showcase = getFulfilledValue(showcasePromise, "home.showcaseImages");
 
   return (
     <>

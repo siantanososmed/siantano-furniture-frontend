@@ -8,6 +8,7 @@ import ProductImage from "@/components/product-image/product-image";
 import { getLocale, getTranslations } from "next-intl/server";
 import ProductColorSelector from "@/components/color-selector/product-color-selector";
 import { getProduct } from "@/actions/action";
+import { getFulfilledValue } from "@/lib/utils";
 
 export default async function ProductDetail({
   params,
@@ -24,8 +25,7 @@ export default async function ProductDetail({
     getProduct({ slug: slug, locale }),
   ]);
 
-  const product =
-    productPromise.status === "fulfilled" ? productPromise.value.data : null;
+  const product = getFulfilledValue(productPromise, "product.product")?.data;
 
   if (!product) {
     return <div className="text-center py-10">{t("productNotFound")}</div>;

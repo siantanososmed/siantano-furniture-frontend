@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import assert from "node:assert";
+import logger from "@/lib/logger";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -41,4 +42,14 @@ export function queryUrlToObject(queryUrl: URLSearchParams) {
     }
   });
   return record;
+}
+export function getFulfilledValue<T>(
+  promiseResult: PromiseSettledResult<T>,
+  name: string
+): T | null {
+  if (promiseResult.status === "fulfilled") {
+    return promiseResult.value;
+  }
+  logger.error(`Failed to get data from ${name}`, promiseResult.reason);
+  return null;
 }

@@ -14,6 +14,7 @@ import {
   getFinishOptions,
   getMaterialOptions,
 } from "@/actions/action";
+import { getFulfilledValue } from "@/lib/utils";
 
 type CatalogProps = {
   params: Promise<{ type: string }>;
@@ -46,14 +47,10 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
       getFinishOptions(),
     ]);
 
-  const categories =
-    categoriesPromise.status === "fulfilled" ? categoriesPromise.value : null;
-  const materials =
-    materialsPromise.status === "fulfilled" ? materialsPromise.value : null;
-  const colors =
-    colorsPromise.status === "fulfilled" ? colorsPromise.value : null;
-  const finishes =
-    finishPromise.status === "fulfilled" ? finishPromise.value : null;
+  const categories = getFulfilledValue(categoriesPromise, "catalog.categories");
+  const materials = getFulfilledValue(materialsPromise, "catalog.materials");
+  const colors = getFulfilledValue(colorsPromise, "catalog.colors");
+  const finishes = getFulfilledValue(finishPromise, "catalog.finishes");
 
   const pageBreadcrumb =
     categories?.data.find((cat) => cat.slug === category)?.name ||
