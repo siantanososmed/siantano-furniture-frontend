@@ -124,7 +124,12 @@ export default function ProductImage({ data }: ProductImageProps) {
   return (
     <div className="space-y-3 md:max-w-64 lg:max-w-[450px]">
       <div className="size-full md:size-64 lg:size-[450px] aspect-square group">
-        <Carousel setApi={setApi}>
+        <Carousel
+          setApi={setApi}
+          opts={{
+            loop: true,
+          }}
+        >
           <CarouselContent>
             {data.map((item) => (
               <CarouselItem key={item.id}>
@@ -163,6 +168,7 @@ export default function ProductImage({ data }: ProductImageProps) {
               width={100}
               height={100}
               className="w-full h-full object-contain"
+              priority
             />
           </div>
         ))}
@@ -194,6 +200,7 @@ export default function ProductImage({ data }: ProductImageProps) {
               width={100}
               height={100}
               className="w-full h-full object-contain"
+              priority
             />
           </div>
         ))}

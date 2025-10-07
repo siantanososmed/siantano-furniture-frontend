@@ -22,6 +22,7 @@ export default function ShowcaseImage({
         width={1920}
         height={1080}
         className="aspect-video"
+        priority
       />
     </div>
   );

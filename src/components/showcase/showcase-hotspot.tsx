@@ -50,14 +50,14 @@ export default function ShowcaseHotspot({
     >
       <div
         ref={refs.setReference}
-        className="size-2.5 md:size-3 lg:size-4 showcase-pin group"
+        className="size-2.5 md:size-3 lg:size-4 showcase-pin group/hotspot"
         tabIndex={0}
       >
         <Link
           ref={refs.setFloating}
           style={floatingStyles}
           href={`/product/${slug}`}
-          className="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition duration-200"
+          className="opacity-0 invisible group-hover/hotspot:opacity-100 group-hover/hotspot:visible group-focus-within/hotspot:opacity-100 group-focus-within/hotspot:visible transition duration-200"
         >
           <div className="flex flex-row w-48 bg-primary-foreground/90 hover:bg-primary-foreground transition shadow-lg border rounded-xl p-2">
             <Image
@@ -65,6 +65,7 @@ export default function ShowcaseHotspot({
               alt={thumbnailAlt}
               width={150}
               height={150}
+              priority
               className="rounded-lg aspect-square size-20 object-contain border border-gray-300"
             />
             <div className="grow pl-2 flex flex-col justify-center">

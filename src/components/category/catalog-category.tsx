@@ -66,6 +66,7 @@ export default function CatalogCategory({
                   width={60}
                   height={60}
                   className="size-16 bg-gray-400/20 p-3 rounded-lg"
+                  priority
                 />
                 <span className="leading-none grow">{category.name}</span>
               </Link>

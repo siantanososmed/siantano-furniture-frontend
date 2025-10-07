@@ -15,6 +15,7 @@ export default function CertificatesBanner({ story }: { story?: OurStoryDto }) {
               className="size-20"
               height={100}
               width={100}
+              priority
             />
             <span className="font-bold text-lg">{c.tagline}</span>
           </div>

@@ -26,6 +26,7 @@ export default function RecommendedProductCard({
           width={800}
           height={800}
           className="object-cover w-full h-full"
+          priority
         />
       </div>
       <div className="p-4 w-full text-lg font-semibold self-start grow">

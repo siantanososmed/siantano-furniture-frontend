@@ -52,6 +52,7 @@ export default function ProductColorSelector({
                 width={100}
                 height={100}
                 className="aspect-square object-cover"
+                priority
               />
             </div>
           </button>

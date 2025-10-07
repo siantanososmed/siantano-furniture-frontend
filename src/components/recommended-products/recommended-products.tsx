@@ -22,7 +22,7 @@ export default function RecommendedProducts({
   return (
     <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 my-6">
       <div className="text-3xl font-semibold">{t("recommendedProducts")}</div>
-      <Carousel>
+      <Carousel className="group">
         <CarouselContent>
           {createGridPages(products, cols, 1).map((page, index) => (
             <CarouselItem key={index}>
@@ -42,57 +42,9 @@ export default function RecommendedProducts({
               </div>
             </CarouselItem>
           ))}
-          {/*{createGridPages(Array.from({ length: 12 }), cols, 1).map(*/}
-          {/*  (page, index) => (*/}
-          {/*    <CarouselItem key={index}>*/}
-          {/*      <div*/}
-          {/*        ref={index === 0 ? ref : null}*/}
-          {/*        className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-4"*/}
-          {/*      >*/}
-          {/*        {page.map((_, i) => (*/}
-          {/*          <RecommendedProductCard*/}
-          {/*            href={"product/" + i}*/}
-          {/*            key={i + index * cols}*/}
-          {/*            title={i.toString()}*/}
-          {/*            image={""}*/}
-          {/*            imageAlt={""}*/}
-          {/*          />*/}
-          {/*        ))}*/}
-          {/*      </div>*/}
-          {/*    </CarouselItem>*/}
-          {/*  )*/}
-          {/*)}*/}
-          {/*<CarouselItem>*/}
-          {/*  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-4">*/}
-          {/*    {Array.from({ length: 4 }).map((_, i) => (*/}
-          {/*      <RecommendedProductCard*/}
-          {/*        href={"#"}*/}
-          {/*        key={i}*/}
-          {/*        title={"Products " + (i + 1)}*/}
-          {/*        image={""}*/}
-          {/*        imageAlt={""}*/}
-          {/*      />*/}
-          {/*    ))}*/}
-          {/*  </div>*/}
-          {/*</CarouselItem>*/}
-          {/*<CarouselItem>*/}
-          {/*  <div className="grid grid-cols-4 gap-5 p-4">*/}
-          {/*    {Array.from({ length: 4 }).map((_, i) => (*/}
-          {/*      <RecommendedProductCard*/}
-          {/*        href={"#"}*/}
-          {/*        key={i}*/}
-          {/*        title={"Products " + (i + 1)}*/}
-          {/*        image={""}*/}
-          {/*        imageAlt={""}*/}
-          {/*      />*/}
-          {/*    ))}*/}
-          {/*  </div>*/}
-          {/*</CarouselItem>*/}
         </CarouselContent>
-        <div className="w-0 h-16 relative mr-16 ml-auto">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div>
+        <CarouselPrevious className="left-2 !invisible group-hover:!visible transition-all" />
+        <CarouselNext className="right-2 !invisible group-hover:!visible transition-all" />
       </Carousel>
     </section>
   );

@@ -61,6 +61,7 @@ export default function Category({
                       width={60}
                       height={60}
                       className="size-14"
+                      priority
                     />
                     <span className="leading-none grow font-bold">
                       {category.name}
