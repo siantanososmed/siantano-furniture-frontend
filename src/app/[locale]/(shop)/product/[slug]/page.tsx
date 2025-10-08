@@ -42,8 +42,8 @@ export default async function ProductDetail({
         <div className="block md:hidden space-y-3">
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <div className="font-bold text-muted-foreground">
-            {t("category")} : {product.category.name} (
-            {t(`quality.${product.category.quality.toLowerCase()}`)})
+            {t("category")} : {product.category?.name} (
+            {t(`quality.${product.category?.quality?.toLowerCase()}`)})
           </div>
         </div>
 
@@ -53,8 +53,8 @@ export default async function ProductDetail({
           <div className="hidden md:block space-y-3">
             <h1 className="text-3xl font-bold">{product.name}</h1>
             <div className="font-bold text-muted-foreground">
-              {t("category")} : {product.category.name} (
-              {t(`quality.${product.category.quality.toLowerCase()}`)})
+              {t("category")} : {product.category?.name} (
+              {t(`quality.${product.category?.quality?.toLowerCase()}`)})
             </div>
           </div>
 
