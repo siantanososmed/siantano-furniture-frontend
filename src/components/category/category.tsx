@@ -38,11 +38,11 @@ export default function Category({
       {/*mobile*/}
       <Carousel opts={{ dragFree: true }} className="w-full">
         <CarouselContent className="w-full">
-          {createGridPages(categories, cols, 2).map((page, index) => (
+          {createGridPages(categories, cols, 1).map((page, index) => (
             <CarouselItem key={index}>
               <div
                 ref={index === 0 ? ref : null}
-                className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-rows-2 gap-3"
+                className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-rows-1 gap-3"
               >
                 {page.map((category) => (
                   <Link

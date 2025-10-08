@@ -14,14 +14,25 @@ import {
 } from "@/components/ui/select";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { queryUrlToObject } from "@/lib/utils";
+import { useSearchParams } from "next/navigation";
 
 const Navbar = () => {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const handleLocaleChange = (value: string) => {
-    router.push(pathname, { locale: value, scroll: false });
+    router.push(
+      {
+        pathname,
+        query: {
+          ...queryUrlToObject(searchParams),
+        },
+      },
+      { locale: value, scroll: false }
+    );
   };
 
   return (
