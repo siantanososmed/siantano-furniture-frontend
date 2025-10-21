@@ -40,8 +40,10 @@ export default async function ProductDetail({
     <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
       <div className="flex flex-col md:flex-row gap-5">
         <div className="block md:hidden space-y-3">
-          <h1 className="text-3xl font-bold">{product.name}</h1>
-          <div className="font-bold text-muted-foreground">
+          <h1 data-aos="fade-down" className="text-3xl font-bold">
+            {product.name}
+          </h1>
+          <div data-aos="fade-down" className="font-bold text-muted-foreground">
             {t("category")} : {product.category?.name} (
             {t(`quality.${product.category?.quality?.toLowerCase()}`)})
           </div>
@@ -51,8 +53,13 @@ export default async function ProductDetail({
 
         <div className="grow space-y-3">
           <div className="hidden md:block space-y-3">
-            <h1 className="text-3xl font-bold">{product.name}</h1>
-            <div className="font-bold text-muted-foreground">
+            <h1 data-aos="fade-down" className="text-3xl font-bold">
+              {product.name}
+            </h1>
+            <div
+              data-aos="fade-down"
+              className="font-bold text-muted-foreground"
+            >
               {t("category")} : {product.category?.name} (
               {t(`quality.${product.category?.quality?.toLowerCase()}`)})
             </div>
@@ -64,25 +71,26 @@ export default async function ProductDetail({
           />
 
           <div
-            className="space-y-3 min-h-80 ckeditor-content ckeditor-result"
+            data-aos="fade-down"
+            className="space-y-3 ckeditor-content ckeditor-result"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(product.description),
             }}
           ></div>
-          <div className="space-y-3">
+          <div data-aos="fade-down" className="space-y-3">
             <span className="font-semibold">{t("material")}:</span>
             <div>
               {product.materials.map((material) => material.name).join(", ")}
             </div>
           </div>
-          <div>
+          <div data-aos="fade-down">
             <span className="font-semibold">{t("finish")}:</span>
             <div>
               {product.finishings.map((finishing) => finishing.name).join(", ")}
             </div>
           </div>
           <Accordion type="multiple">
-            <AccordionItem value="dimension">
+            <AccordionItem data-aos="fade-left" value="dimension">
               <AccordionTrigger className="text-base font-semibold">
                 {t("dimensions")}
               </AccordionTrigger>
@@ -95,7 +103,7 @@ export default async function ProductDetail({
                 ></div>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="weight">
+            <AccordionItem data-aos="fade-right" value="weight">
               <AccordionTrigger className="text-base font-semibold">
                 {t("weight")}
               </AccordionTrigger>

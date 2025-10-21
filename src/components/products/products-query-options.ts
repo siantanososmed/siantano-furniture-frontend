@@ -1,5 +1,5 @@
 import { infiniteQueryOptions } from "@tanstack/react-query";
-import axios from "axios";
+import browserHttpClient from "@/lib/client-http";
 
 type GetProductsParams = {
   locale: string;
@@ -59,28 +59,27 @@ export async function getProducts({
     };
   }
 
-  const response = await axios.get<PaginatedResponseDto<ProductDto>>(
-    `${process.env.NEXT_PUBLIC_API_URL}/products`,
-    {
-      params: {
-        populate: {
-          thumbnail: {
-            fields: ["url", "provider_metadata", "alternativeText"],
-          },
-          product_colors: {
-            populate: {
-              color: {
-                fields: ["name", "slug"],
-              },
+  const response = await browserHttpClient.get<
+    PaginatedResponseDto<ProductDto>
+  >(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
+    params: {
+      populate: {
+        thumbnail: {
+          fields: ["url", "provider_metadata", "alternativeText"],
+        },
+        product_colors: {
+          populate: {
+            color: {
+              fields: ["name", "slug"],
             },
           },
         },
-        filters,
-        pagination,
-        locale,
       },
-    }
-  );
+      filters,
+      pagination,
+      locale,
+    },
+  });
 
   return response.data;
 }

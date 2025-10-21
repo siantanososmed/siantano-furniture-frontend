@@ -28,15 +28,17 @@
     "catalog": "Catalog",
     "seeMore": "See More",
     "recommendedProducts": "Recommended Products",
-    "showcases": "Showcases"
+    "showcases": "Showcases",
+    "newArrivals": "New Arrivals",
+    "new": "NEW"
   },
   "OurStory": {
     "ourStory": "Our Story"
   },
   "Catalog": {
     "allCategories": "All Categories",
-    "localProducts": "Produk Lokal",
-    "exportProducts": "Produk Ekspor",
+    "localProducts": "Local Products",
+    "exportProducts": "Export Products",
     "filter": "Filter",
     "materials": "Materials",
     "colors": "Colors",
@@ -54,5 +56,99 @@
       "local": "Local",
       "export": "Export"
     }
+  },
+  "ContactUs":  {
+    "contactUs": "Contact Us",
+    "description": "Hi! Got a question about our products or planning to visit our showroom? <br /> We can also help bring your custom designs ideas to life. <br /> Just drop us a message and we’ll get back to you as soon as we can.",
+    "location": "Based in Malang – East Java, Indonesia",
+    "letsCreateTogether": "Let’s Create Together",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Name",
+        "errors": {
+          "required": "Name is required"
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "errors": {
+          "invalid": "Invalid email address"
+        }
+      },
+      "phoneNumber": {
+        "label": "Phone Number",
+        "placeholder": "Phone Number",
+        "errors": {
+          "invalid": "Invalid phone number format"
+        }
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Subject",
+        "errors": {
+          "required": "Subject is required"
+        }
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message here...",
+        "errors": {
+          "minimum": "Message must be at least 10 characters long"
+        }
+      },
+      "submit": "Send Message",
+      "successMessage": "Your message has been sent successfully!",
+      "errorMessage": "There was an error sending your message. Please try again later."
+    }
+  },
+  "Careers": {
+    "careers": "Careers",
+    "searchJobs": "Search Jobs",
+    "applyNow": "Apply Now",
+    "form": {
+      "subject": {
+        "label": "Subject",
+        "prefix": "Application for {job}"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Name",
+        "errors": {
+          "required": "Name is required"
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "errors": {
+          "invalid": "Invalid email address"
+        }
+      },
+      "phoneNumber": {
+        "label": "Phone Number",
+        "placeholder": "Phone Number",
+        "errors": {
+          "invalid": "Invalid phone number format"
+        }
+      },
+      "cv": {
+        "label": "CV/Portfolio",
+        "placeholder": "Upload your CV",
+        "errors": {
+          "required": "CV is required"
+        }
+      },
+      "submit": "Submit Application",
+      "successMessage": "Your application has been submitted successfully!",
+      "errorMessage": "There was an error submitting your application. Please try again later."
+    }
+  },
+  "Footer": {
+    "ourStory": "Our Story",
+    "contactUs": "Contact Us",
+    "careers": "Careers",
+    "allRightsReserved": "All rights reserved."
   }
 }

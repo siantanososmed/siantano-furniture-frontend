@@ -3,8 +3,18 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 const ProductCard = memo(
-  ({ product, ref }: { product: ProductDto; ref?: Ref<HTMLAnchorElement> }) => (
+  ({
+    product,
+    ref,
+    index,
+  }: {
+    product: ProductDto;
+    ref?: Ref<HTMLAnchorElement>;
+    index: number;
+  }) => (
     <Link
+      data-aos="fade-up"
+      data-aos-delay={index * 100}
       ref={ref}
       key={product.documentId}
       href={`/product/${product.slug}`}

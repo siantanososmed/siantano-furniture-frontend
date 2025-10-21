@@ -1,7 +1,12 @@
 import axios, { isAxiosError } from "axios";
 import logger from "@/lib/logger";
 
-const httpClient = axios.create();
+const httpClient = axios.create({
+  adapter: "fetch",
+  fetchOptions: {
+    cache: "force-cache",
+  },
+});
 
 httpClient.interceptors.response.use(
   (response) => response,

@@ -1,7 +1,10 @@
+"use client";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "next-intl";
 
-type RecommendedProductCardProps = {
+type NewArrivalCardProps = {
   href: string;
   image: string;
   imageAlt: string;
@@ -9,20 +12,27 @@ type RecommendedProductCardProps = {
   index: number;
 };
 
-export default function RecommendedProductCard({
+export default function NewArrivalCard({
   href,
   image,
   imageAlt,
   title,
   index,
-}: RecommendedProductCardProps) {
+}: NewArrivalCardProps) {
+  const t = useTranslations("Home");
+
   return (
     <Link
       data-aos="fade-left"
       data-aos-delay={index * 100}
       href={href}
-      className="border overflow-hidden hover:scale-105 transition rounded-xl shadow flex flex-col items-center justify-center"
+      className="border overflow-hidden hover:scale-105 transition rounded-xl shadow flex relative flex-col items-center justify-center"
     >
+      <div className="absolute right-2 top-1">
+        <Badge className="border-transparent bg-gradient-to-r from-[#0057A6] to-[#00C6FF] [background-size:105%] bg-center text-white rounded-full">
+          {t("new")}
+        </Badge>
+      </div>
       <div className="w-full aspect-square transition">
         <Image
           src={image}

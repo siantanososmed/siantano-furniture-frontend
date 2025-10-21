@@ -39,7 +39,9 @@ const Navbar = () => {
     <nav className="h-16 bg-background sticky top-0 shadow border z-10">
       <div className="h-full flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
-          <Logo />
+          <div data-aos="zoom-in">
+            <Logo />
+          </div>
 
           {/* Desktop Menu */}
           <NavMenu className="hidden md:block" />
@@ -51,7 +53,7 @@ const Navbar = () => {
             value={locale}
             onValueChange={handleLocaleChange}
           >
-            <SelectTrigger className="w-20">
+            <SelectTrigger data-aos="zoom-in" className="w-20">
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="w-fit min-w-0" align={"end"}>

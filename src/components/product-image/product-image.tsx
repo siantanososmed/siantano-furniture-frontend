@@ -122,7 +122,10 @@ export default function ProductImage({ data }: ProductImageProps) {
   }, [api, onSelect]);
 
   return (
-    <div className="space-y-3 md:max-w-64 lg:max-w-[450px]">
+    <div
+      data-aos="zoom-in-down"
+      className="space-y-3 md:max-w-64 lg:max-w-[450px]"
+    >
       <div className="size-full md:size-64 lg:size-[450px] aspect-square group">
         <Carousel
           setApi={setApi}

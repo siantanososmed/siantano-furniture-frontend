@@ -24,7 +24,10 @@ export default function Category({
     search.get("type")?.toLowerCase() === "local" ? "local" : "export";
 
   return (
-    <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
+    <section
+      data-aos="fade-down"
+      className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3"
+    >
       <div className="inline-flex justify-between w-full items-center">
         <span className="text-3xl font-semibold">{t("catalog")}</span>
         <Link
@@ -44,8 +47,10 @@ export default function Category({
                 ref={index === 0 ? ref : null}
                 className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-rows-1 gap-3"
               >
-                {page.map((category) => (
+                {page.map((category, index) => (
                   <Link
+                    data-aos="fade-left"
+                    data-aos-delay={index * 100}
                     key={category.documentId}
                     className="min-h-28 min-w-36 inline-flex flex-col items-center justify-center text-center gap-2 p-2 select-none"
                     href={{

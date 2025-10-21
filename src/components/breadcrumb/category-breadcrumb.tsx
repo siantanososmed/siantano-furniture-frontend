@@ -16,7 +16,10 @@ export default function CategoryBreadcrumb({
   items: { label: string; href: string | UrlObject }[];
 }) {
   return (
-    <div className="inline-flex justify-between w-full items-center">
+    <div
+      data-aos="zoom-in"
+      className="inline-flex justify-between w-full items-center"
+    >
       <Breadcrumb>
         <BreadcrumbList>
           {items.map((item, i) => {

@@ -7,6 +7,7 @@ import TanstackQueryProvider from "@/components/tanstack-query/tanstack-query-pr
 import { GoogleTagManager } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import * as Sentry from "@sentry/nextjs";
+import AosInit from "@/components/aos/aos";
 
 type Props = {
   children: React.ReactNode;
@@ -33,9 +34,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER as string}
       />
       <body className="antialiased">
-        <NextIntlClientProvider>
-          <TanstackQueryProvider>{children}</TanstackQueryProvider>
-        </NextIntlClientProvider>
+        <AosInit>
+          <NextIntlClientProvider>
+            <TanstackQueryProvider>{children}</TanstackQueryProvider>
+          </NextIntlClientProvider>
+        </AosInit>
         <SpeedInsights />
       </body>
     </html>

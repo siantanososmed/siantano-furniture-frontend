@@ -28,7 +28,9 @@
     "catalog": "Katalog",
     "seeMore": "Lihat Lebih",
     "recommendedProducts": "Produk Rekomendasi",
-    "showcases": "Etalase"
+    "showcases": "Etalase",
+    "newArrivals": "Produk Baru",
+    "new": "BARU"
   },
   "OurStory": {
     "ourStory": "Kisah Kami"
@@ -54,5 +56,99 @@
       "local": "Lokal",
       "export": "Ekspor"
     }
+  },
+  "ContactUs":  {
+    "contactUs": "Hubungi Kami",
+    "description": "Hai! Punya pertanyaan tentang produk kami atau berencana mengunjungi showroom? <br /> Atau ingin mewujudkan ide desainmu, dari konsep hingga menjadi produk jadi? <br /> Tinggalkan pesanmu, dan tim kami akan segera menghubungimu kembali.",
+    "location": "Berlokasi di Malang – Jawa Timur, Indonesia",
+    "letsCreateTogether": "Let’s Create Together",
+    "form": {
+      "name": {
+        "label": "Nama",
+        "placeholder": "Nama",
+        "errors": {
+          "required": "Nama wajib diisi"
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "errors": {
+          "invalid": "Format email tidak valid"
+        }
+      },
+      "phoneNumber": {
+        "label": "Nomor Telepon",
+        "placeholder": "Nomor Telepon",
+        "errors": {
+          "invalid": "Format nomor telepon tidak valid"
+        }
+      },
+      "subject": {
+        "label": "Subjek",
+        "placeholder": "Subjek",
+        "errors": {
+          "required": "Subjek wajib diisi"
+        }
+      },
+      "message": {
+        "label": "Pesan",
+        "placeholder": "Pesan Anda di sini...",
+        "errors": {
+          "minimum": "Pesan harus terdiri dari minimal 10 karakter"
+        }
+      },
+      "submit": "Kirim Pesan",
+      "successMessage": "Pesan Anda telah berhasil dikirim!",
+      "errorMessage": "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi nanti."
+    }
+  },
+  "Careers": {
+    "careers": "Karir",
+    "searchJobs": "Cari Pekerjaan",
+    "applyNow": "Lamar Sekarang",
+    "form": {
+      "subject": {
+        "label": "Subjek",
+        "prefix": "Lamaran untuk {job}"
+      },
+      "name": {
+        "label": "Nama",
+        "placeholder": "Nama",
+        "errors": {
+          "required": "Nama wajib diisi"
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "errors": {
+          "invalid": "Format email tidak valid"
+        }
+      },
+      "phoneNumber": {
+        "label": "Nomor Telepon",
+        "placeholder": "Nomor Telepon",
+        "errors": {
+          "invalid": "Format nomor telepon tidak valid"
+        }
+      },
+      "cv": {
+        "label": "CV/Portfolio",
+        "placeholder": "Upload your CV",
+        "errors": {
+          "required": "CV wajib diunggah"
+        }
+      },
+      "submit": "Kirim Lamaran",
+      "successMessage": "Lamaran Anda telah berhasil dikirim!",
+      "errorMessage": "Terjadi kesalahan saat mengirim lamaran. Silakan coba lagi nanti."
+    }
+  },
+  "Footer": {
+    "ourStory": "Kisah Kami",
+    "contactUs": "Hubungi Kami",
+    "careers": "Karir",
+    "allRightsReserved": "Hak cipta dilindungi."
   }
 }

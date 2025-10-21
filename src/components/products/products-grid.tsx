@@ -48,6 +48,7 @@ export default function ProductsGrid() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {products.map((product, i, arr) => (
           <ProductCard
+            index={i}
             key={product.documentId}
             product={product}
             ref={i === arr.length - 1 ? ref : null}
@@ -85,6 +86,8 @@ export default function ProductsGrid() {
           Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
               className="w-full min-h-52 border rounded-lg bg-gray-400 animate-pulse"
             ></div>
           ))}

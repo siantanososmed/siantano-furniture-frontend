@@ -173,3 +173,15 @@ type ProductColorDto = {
   color: Pick<ColorDto, "id" | "documentId" | "name" | "sample" | "slug">;
   productMedia: MediaDto[];
 };
+type JobDto = {
+  id: number;
+  documentId: string;
+  position: string;
+  description?: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  experience: string;
+  jobStatus: "Open" | "Closed" | string;
+  slug: string;
+};

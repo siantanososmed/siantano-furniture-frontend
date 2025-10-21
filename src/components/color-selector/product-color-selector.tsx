@@ -30,13 +30,15 @@ export default function ProductColorSelector({
 
   return (
     <div className="space-y-2">
-      <div className="block">
+      <div data-aos="fade-down" className="block">
         {t("color")}:{" "}
         <span className="font-semibold">{selectedColor?.color.name}</span>
       </div>
       <div className="flex flex-row flex-wrap gap-5">
-        {colors.map((color) => (
+        {colors.map((color, i) => (
           <button
+            data-aos="fade-left"
+            data-aos-delay={i * 100}
             key={color.documentId}
             className={cn(
               "size-16 hover:scale-105 transition cursor-pointer",

@@ -36,7 +36,9 @@ const renderMenu = (menu: MenuItem) => {
     return (
       <NavigationMenuItem>
         <Button variant="ghost" className="text-[15px] font-normal" asChild>
-          <Link href={menu.href}>{menu.title}</Link>
+          <Link data-aos="zoom-in" href={menu.href}>
+            {menu.title}
+          </Link>
         </Button>
       </NavigationMenuItem>
     );
@@ -44,7 +46,10 @@ const renderMenu = (menu: MenuItem) => {
 
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className="text-[15px] font-normal">
+      <NavigationMenuTrigger
+        data-aos="zoom-in"
+        className="text-[15px] font-normal"
+      >
         {menu.title}
       </NavigationMenuTrigger>
       <NavigationMenuContent>

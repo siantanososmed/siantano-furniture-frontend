@@ -29,6 +29,7 @@ export default async function Hero({
               controlsList="nodownload"
               src={videoUrl}
               className="object-cover w-full h-full"
+              data-aos="fade-down"
             />
           )}
         </div>
@@ -37,6 +38,7 @@ export default async function Hero({
             "absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 bg-white/30 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xs shadow border border-white/30",
             "w-full max-w-xs md:max-w-lg lg:max-w-2xl"
           )}
+          data-aos="fade-down"
         >
           <div className="overflow-hidden">
             <div className="text-center p-6">

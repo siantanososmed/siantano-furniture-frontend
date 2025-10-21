@@ -98,7 +98,10 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
         />
         <CatalogCategory categories={categories?.data || []} />
       </section>
-      <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
+      <section
+        data-aos="fade-down"
+        className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3"
+      >
         <div className="flex flex-row justify-between items-center">
           <FilterProduct
             materials={materials?.data || []}
@@ -107,7 +110,10 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
           />
         </div>
       </section>
-      <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3 min-h-96">
+      <section
+        data-aos="fade-down"
+        className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3 min-h-96"
+      >
         <HydrationBoundary state={dehydrate(queryClient)}>
           <ProductsGrid />
         </HydrationBoundary>

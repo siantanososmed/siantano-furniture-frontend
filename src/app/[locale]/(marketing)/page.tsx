@@ -6,10 +6,12 @@ import Category from "@/components/category/category";
 import {
   getCategories,
   getHero,
+  getNewArrivalsProducts,
   getRecommendedProducts,
   getShowcase,
 } from "@/actions/action";
 import { getFulfilledValue } from "@/lib/utils";
+import NewArrival from "@/components/new-arrivals/new-arrival";
 
 export default async function Home({
   searchParams,
@@ -24,11 +26,13 @@ export default async function Home({
     heroPromise,
     recommendedProductsPromise,
     showcasePromise,
+    newArrivalsProductsPromise,
   ] = await Promise.allSettled([
     getCategories({ locale, quality: type }),
     getHero({ locale }),
     getRecommendedProducts({ locale }),
     getShowcase({ locale }),
+    getNewArrivalsProducts({ locale }),
   ]);
 
   const categories = getFulfilledValue(categoriesPromise, "home.categories");
@@ -38,6 +42,10 @@ export default async function Home({
     "home.recommendedProducts"
   );
   const showcase = getFulfilledValue(showcasePromise, "home.showcaseImages");
+  const newArrivalsProducts = getFulfilledValue(
+    newArrivalsProductsPromise,
+    "home.newArrivalsProducts"
+  );
 
   return (
     <>
@@ -47,6 +55,7 @@ export default async function Home({
         videoUrl={hero?.data.media.url}
       />
       <Category categories={categories?.data || []} />
+      <NewArrival products={newArrivalsProducts?.data.products || []} />
       <RecommendedProducts
         products={recommendedProducts?.data.products || []}
       />

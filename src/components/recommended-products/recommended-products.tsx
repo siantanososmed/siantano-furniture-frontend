@@ -20,7 +20,10 @@ export default function RecommendedProducts({
   const t = useTranslations("Home");
 
   return (
-    <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 my-6">
+    <section
+      data-aos="fade-down"
+      className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 my-6"
+    >
       <div className="text-3xl font-semibold">{t("recommendedProducts")}</div>
       <Carousel className="group">
         <CarouselContent>
@@ -30,8 +33,9 @@ export default function RecommendedProducts({
                 ref={index === 0 ? ref : null}
                 className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-4"
               >
-                {page.map((product) => (
+                {page.map((product, i) => (
                   <RecommendedProductCard
+                    index={i}
                     href={"product/" + product.slug}
                     key={product.documentId}
                     title={product.name}

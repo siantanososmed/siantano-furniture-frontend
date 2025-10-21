@@ -32,6 +32,7 @@ export default function CatalogCategory({
       <CarouselContent>
         <CarouselItem className="basis-36/100 md:basis-20/100 lg:basis-15/100 min-w-fit">
           <Link
+            data-aos="fade-left"
             className="shrink-0 w-32 inline-flex flex-col items-center justify-center text-center gap-2 p-1 pb-2 select-none"
             href={{
               pathname,
@@ -51,6 +52,8 @@ export default function CatalogCategory({
           >
             <Fragment key={i}>
               <Link
+                data-aos="fade-left"
+                data-aos-delay={i * 100}
                 className="shrink-0 w-32 inline-flex flex-col items-center justify-center text-center gap-2 p-1 pb-2 select-none"
                 href={{
                   pathname,
