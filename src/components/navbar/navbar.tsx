@@ -16,6 +16,7 @@ import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { queryUrlToObject } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
+import ProductSearch from "@/components/search/product-search";
 
 const Navbar = () => {
   const locale = useLocale();
@@ -47,7 +48,10 @@ const Navbar = () => {
           <NavMenu className="hidden md:block" />
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          {/* Search */}
+          <ProductSearch />
+
           <Select
             defaultValue={locale}
             value={locale}

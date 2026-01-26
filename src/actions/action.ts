@@ -43,6 +43,13 @@ export async function getRecommendedProducts({ locale }: { locale: string }) {
               thumbnail: {
                 fields: ["url", "provider_metadata", "alternativeText"],
               },
+              product_colors: {
+                populate: {
+                  productMedia: {
+                    fields: ["url", "provider_metadata", "alternativeText"],
+                  },
+                },
+              },
             },
           },
         },
@@ -70,6 +77,13 @@ export async function getNewArrivalsProducts({ locale }: { locale: string }) {
             populate: {
               thumbnail: {
                 fields: ["url", "provider_metadata", "alternativeText"],
+              },
+              product_colors: {
+                populate: {
+                  productMedia: {
+                    fields: ["url", "provider_metadata", "alternativeText"],
+                  },
+                },
               },
             },
           },
@@ -168,10 +182,10 @@ export async function getCategories({
         },
         filters: {
           quality: {
-            $eqi: quality?.toLowerCase() === "local" ? "local" : "export",
+            $eqi: quality?.toLowerCase() === "export" ? "export" : "local",
           },
         },
-        sort: ["name:asc"],
+        sort: ["slug:asc"],
         pagination: { pageSize: 100 },
         locale,
       },

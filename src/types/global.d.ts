@@ -80,6 +80,7 @@ type ProductDto = {
   locale: string;
   slug: string;
   thumbnail: MediaDto;
+  product_colors?: Pick<ProductColorDto, "id" | "documentId" | "productMedia">[];
 };
 
 type ProductCollectionDto = {

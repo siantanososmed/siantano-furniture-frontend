@@ -1,4 +1,11 @@
 {
+  "Search": {
+    "placeholder": "Search products...",
+    "ariaLabel": "Search products",
+    "clear": "Clear search",
+    "noResults": "No products found",
+    "tryDifferent": "Try a different search term"
+  },
   "Navbar": {
     "home": "Home",
     "ourStory": "Our Story",
@@ -25,7 +32,7 @@
       "long": "Local Products",
       "short": "Local"
     },
-    "catalog": "Catalog",
+    "catalog": "Categories",
     "seeMore": "See More",
     "recommendedProducts": "Recommended Products",
     "showcases": "Showcases",
@@ -57,7 +64,7 @@
       "export": "Export"
     }
   },
-  "ContactUs":  {
+  "ContactUs": {
     "contactUs": "Contact Us",
     "description": "Hi! Got a question about our products or planning to visit our showroom? <br /> We can also help bring your custom designs ideas to life. <br /> Just drop us a message and we’ll get back to you as soon as we can.",
     "location": "Based in Malang – East Java, Indonesia",

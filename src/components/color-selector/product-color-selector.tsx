@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { cn, queryUrlToObject } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
 
 export default function ProductColorSelector({
   colors,
@@ -17,8 +18,10 @@ export default function ProductColorSelector({
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const t = useTranslations("Product");
+  const hasAnimated = useRef(false);
 
   const handleColorChange = (colorSlug: string) => {
+    hasAnimated.current = true;
     router.push({
       pathname,
       query: {
@@ -30,15 +33,18 @@ export default function ProductColorSelector({
 
   return (
     <div className="space-y-2">
-      <div data-aos="fade-down" className="block">
+      <div
+        data-aos={!hasAnimated.current ? "fade-down" : undefined}
+        className="block"
+      >
         {t("color")}:{" "}
         <span className="font-semibold">{selectedColor?.color.name}</span>
       </div>
       <div className="flex flex-row flex-wrap gap-5">
         {colors.map((color, i) => (
           <button
-            data-aos="fade-left"
-            data-aos-delay={i * 100}
+            data-aos={!hasAnimated.current ? "fade-left" : undefined}
+            data-aos-delay={!hasAnimated.current ? i * 100 : undefined}
             key={color.documentId}
             className={cn(
               "size-16 hover:scale-105 transition cursor-pointer",

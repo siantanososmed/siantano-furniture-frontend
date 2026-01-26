@@ -1,4 +1,4 @@
-import { infiniteQueryOptions } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import browserHttpClient from "@/lib/client-http";
 
 type GetProductsParams = {
@@ -18,6 +18,9 @@ type GetProductsParams = {
     order: "asc" | "desc";
   };
 };
+
+const PAGE_SIZE = 20;
+
 export async function getProducts({
   locale,
   pagination,
@@ -72,6 +75,9 @@ export async function getProducts({
             color: {
               fields: ["name", "slug"],
             },
+            productMedia: {
+              fields: ["url", "provider_metadata", "alternativeText"],
+            },
           },
         },
       },
@@ -84,24 +90,20 @@ export async function getProducts({
   return response.data;
 }
 
-export const productsQueryOptions = (
-  params: Omit<GetProductsParams, "pagination">
-) =>
-  infiniteQueryOptions({
+type ProductsQueryParams = Omit<GetProductsParams, "pagination"> & {
+  page?: number;
+};
+
+export const productsQueryOptions = (params: ProductsQueryParams) =>
+  queryOptions({
     queryKey: ["products", params],
-    queryFn: ({ pageParam, queryKey }) =>
+    queryFn: () =>
       getProducts({
-        ...(queryKey[1] as Omit<GetProductsParams, "pagination">),
+        locale: params.locale,
+        filter: params.filter,
         pagination: {
-          page: pageParam,
-          pageSize: 50,
+          page: params.page || 1,
+          pageSize: PAGE_SIZE,
         },
       }),
-    initialPageParam: 1,
-    getNextPageParam: (lastPage) => {
-      if (lastPage.meta.pagination.page < lastPage.meta.pagination.pageCount) {
-        return lastPage.meta.pagination.page + 1;
-      }
-      return null;
-    },
   });

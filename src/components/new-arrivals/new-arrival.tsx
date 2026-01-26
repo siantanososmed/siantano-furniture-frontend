@@ -35,8 +35,10 @@ export default function NewArrival({ products }: { products: ProductDto[] }) {
                     key={product.documentId}
                     href={"product/" + product.slug}
                     title={product.name}
-                    image={"http://localhost:1337" + product.thumbnail.url}
+                    image={product.thumbnail.url}
                     imageAlt={product.thumbnail.alternativeText || product.name}
+                    hoverImage={product.product_colors?.[0]?.productMedia?.[0]?.url}
+                    hoverImageAlt={product.product_colors?.[0]?.productMedia?.[0]?.alternativeText}
                   />
                 ))}
               </div>

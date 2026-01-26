@@ -23,6 +23,7 @@ type CatalogProps = {
     colors?: string | string[];
     materials?: string | string[];
     finishes?: string | string[];
+    page?: string;
     [key: string]: string | string[] | undefined;
   }>;
 };
@@ -31,8 +32,9 @@ const allowedTypes = ["local", "export"];
 
 export default async function Catalog({ params, searchParams }: CatalogProps) {
   const { type } = await params;
-  const { category, ...restSearchParams } = await searchParams;
+  const { category, page, ...restSearchParams } = await searchParams;
   const locale = await getLocale();
+  const currentPage = Number(page) || 1;
   const t = await getTranslations("Catalog");
 
   if (!allowedTypes.includes(type)) {
@@ -57,9 +59,10 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
     t("allCategories");
 
   const queryClient = getQueryClient();
-  await queryClient.prefetchInfiniteQuery(
+  await queryClient.prefetchQuery(
     productsQueryOptions({
       locale,
+      page: currentPage,
       filter: {
         category,
         color:

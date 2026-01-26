@@ -1,10 +1,12 @@
+"use client";
 import { GlobeIcon, MapPinIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
-export default async function Hero({
+export default function Hero({
   videoUrl = "",
   title = "",
   description = "",
@@ -13,7 +15,10 @@ export default async function Hero({
   title?: string;
   description?: string;
 }) {
-  const t = await getTranslations("Home");
+  const t = useTranslations("Home");
+  const search = useSearchParams();
+  const type =
+    search.get("type")?.toLowerCase() === "export" ? "export" : "local";
 
   return (
     <>
@@ -47,19 +52,8 @@ export default async function Hero({
               </h1>
               <p className="mt-6 text-[17px] md:text-lg">{description}</p>
               <div className="mt-12 flex items-center justify-center gap-4">
-                <Button size="lg" className="rounded-full text-base" asChild>
-                  <Link href={{ pathname: "/", query: { type: "export" } }}>
-                    <GlobeIcon className="text-blue-500" />
-                    <span className="hidden md:contents">
-                      {t("exportProducts.long")}
-                    </span>
-                    <span className="md:hidden">
-                      {t("exportProducts.short")}
-                    </span>
-                  </Link>
-                </Button>
                 <Button
-                  variant="secondary"
+                  variant={type === "local" ? "default" : "secondary"}
                   size="lg"
                   className="rounded-full text-base shadow-none"
                   asChild
@@ -71,6 +65,22 @@ export default async function Hero({
                     </span>
                     <span className="md:hidden">
                       {t("localProducts.short")}
+                    </span>
+                  </Link>
+                </Button>
+                <Button
+                  variant={type === "export" ? "default" : "secondary"}
+                  size="lg"
+                  className="rounded-full text-base"
+                  asChild
+                >
+                  <Link href={{ pathname: "/", query: { type: "export" } }}>
+                    <GlobeIcon className="text-blue-500" />
+                    <span className="hidden md:contents">
+                      {t("exportProducts.long")}
+                    </span>
+                    <span className="md:hidden">
+                      {t("exportProducts.short")}
                     </span>
                   </Link>
                 </Button>

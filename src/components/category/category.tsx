@@ -21,7 +21,7 @@ export default function Category({
   const { ref, cols } = useGridColumns();
   const t = useTranslations("Home");
   const type =
-    search.get("type")?.toLowerCase() === "local" ? "local" : "export";
+    search.get("type")?.toLowerCase() === "export" ? "export" : "local";
 
   return (
     <section
