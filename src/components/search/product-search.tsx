@@ -5,7 +5,7 @@ import { Search, X } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLocale, useTranslations } from "next-intl";
 import browserHttpClient from "@/lib/client-http";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useDebounce } from "@/hooks/use-debounce";
@@ -72,6 +72,7 @@ function SearchInput({
 }) {
   const t = useTranslations("Search");
   const locale = useLocale();
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -113,10 +114,18 @@ function SearchInput({
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveIndex((prev) => (prev > 0 ? prev - 1 : -1));
-    } else if (e.key === "Enter" && activeIndex >= 0 && results[activeIndex]) {
+    } else if (e.key === "Enter") {
       e.preventDefault();
-      onResultClick?.();
-      window.location.href = `/product/${results[activeIndex].slug}`;
+      if (activeIndex >= 0 && results[activeIndex]) {
+        // Navigate to selected product
+        onResultClick?.();
+        router.push(`/product/${results[activeIndex].slug}`);
+      } else if (query.trim()) {
+        // Navigate to search page with query
+        onResultClick?.();
+        setIsFocused(false);
+        router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+      }
     } else if (e.key === "Escape") {
       setIsFocused(false);
       inputRef.current?.blur();

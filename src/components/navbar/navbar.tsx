@@ -63,16 +63,16 @@ const Navbar = () => {
             <SelectContent className="w-fit min-w-0" align={"end"}>
               <SelectGroup>
                 <SelectLabel className="sr-only">Language</SelectLabel>
-                <SelectItem value="en">
-                  <div className="flex items-center gap-2">
-                    {/*<span className="fi fi-gb h-4 w-4 border"></span>*/}
-                    <span>EN</span>
-                  </div>
-                </SelectItem>
                 <SelectItem value="id">
                   <div className="flex items-center gap-2">
                     {/*<span className="fi fi-id h-4 w-4 border"></span>*/}
                     <span>ID</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="en">
+                  <div className="flex items-center gap-2">
+                    {/*<span className="fi fi-gb h-4 w-4 border"></span>*/}
+                    <span>EN</span>
                   </div>
                 </SelectItem>
               </SelectGroup>

@@ -12,6 +12,7 @@ type GetProductsParams = {
     color?: string[];
     finish?: string[];
     category?: string;
+    search?: string;
   };
   sort?: {
     by: "category" | "name";
@@ -27,6 +28,12 @@ export async function getProducts({
   filter,
 }: GetProductsParams) {
   const filters: Record<string, unknown> = {};
+
+  if (filter?.search) {
+    filters.name = {
+      $containsi: filter.search,
+    };
+  }
 
   if (filter?.category) {
     filters.category = {

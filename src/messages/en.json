@@ -4,7 +4,10 @@
     "ariaLabel": "Search products",
     "clear": "Clear search",
     "noResults": "No products found",
-    "tryDifferent": "Try a different search term"
+    "tryDifferent": "Try a different search term",
+    "searchResults": "Search Results",
+    "searchingFor": "Showing results for",
+    "allProducts": "All Products"
   },
   "Navbar": {
     "home": "Home",

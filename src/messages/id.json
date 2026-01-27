@@ -4,7 +4,10 @@
     "ariaLabel": "Cari produk",
     "clear": "Hapus pencarian",
     "noResults": "Produk tidak ditemukan",
-    "tryDifferent": "Coba kata kunci lain"
+    "tryDifferent": "Coba kata kunci lain",
+    "searchResults": "Hasil Pencarian",
+    "searchingFor": "Menampilkan hasil untuk",
+    "allProducts": "Semua Produk"
   },
   "Navbar": {
     "home": "Beranda",

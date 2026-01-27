@@ -27,16 +27,16 @@ export const useMenuItems = () => {
       href: "#",
       submenu: [
         {
-          title: t("catalog.dropdown.exportProducts.title"),
-          href: "/catalog/export",
-          icon: GlobeIcon,
-          description: t("catalog.dropdown.exportProducts.description"),
-        },
-        {
           title: t("catalog.dropdown.localProducts.title"),
           href: "/catalog/local",
           icon: MapPin,
           description: t("catalog.dropdown.localProducts.description"),
+        },
+        {
+          title: t("catalog.dropdown.exportProducts.title"),
+          href: "/catalog/export",
+          icon: GlobeIcon,
+          description: t("catalog.dropdown.exportProducts.description"),
         },
       ],
     },
