@@ -80,7 +80,10 @@ type ProductDto = {
   locale: string;
   slug: string;
   thumbnail: MediaDto;
-  product_colors?: Pick<ProductColorDto, "id" | "documentId" | "productMedia">[];
+  product_colors?: Pick<
+    ProductColorDto,
+    "id" | "documentId" | "productMedia"
+  >[];
 };
 
 type ProductCollectionDto = {
@@ -185,4 +188,14 @@ type JobDto = {
   experience: string;
   jobStatus: "Open" | "Closed" | string;
   slug: string;
+};
+type HeroImageDto = {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  contactUsHero: MediaDto;
+  careerHero: MediaDto;
+  ourStoryHero: MediaDto;
 };

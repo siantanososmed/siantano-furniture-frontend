@@ -10,8 +10,8 @@
     "allProducts": "Semua Produk"
   },
   "Navbar": {
-    "home": "Beranda",
-    "ourStory": "Kisah Kami",
+    "home": "Home",
+    "ourStory": "Tentang Kami",
     "catalog": {
       "title": "Katalog",
       "dropdown": {
@@ -43,7 +43,7 @@
     "new": "BARU"
   },
   "OurStory": {
-    "ourStory": "Kisah Kami"
+    "ourStory": "Tentang Kami"
   },
   "Catalog": {
     "allCategories": "Semua Kategori",
@@ -156,7 +156,7 @@
     }
   },
   "Footer": {
-    "ourStory": "Kisah Kami",
+    "ourStory": "Tentang Kami",
     "contactUs": "Hubungi Kami",
     "careers": "Karir",
     "allRightsReserved": "Hak cipta dilindungi."

@@ -332,3 +332,28 @@ export async function postCareers(data: {
 
   return response.data;
 }
+
+export async function getHeroImage() {
+  const response = await httpClient.get<ResponseDto<HeroImageDto>>(
+    `${process.env.NEXT_PUBLIC_API_URL}/hero-image`,
+    {
+      params: {
+        populate: {
+          contactUsHero: {
+            fields: ["url", "provider_metadata", "alternativeText"],
+          },
+          careerHero: {
+            fields: ["url", "provider_metadata", "alternativeText"],
+          },
+          ourStoryHero: {
+            fields: ["url", "provider_metadata", "alternativeText"],
+          },
+        },
+      },
+      fetchOptions: {
+        cache: "default",
+      },
+    }
+  );
+  return response.data;
+}

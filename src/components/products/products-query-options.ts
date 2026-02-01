@@ -89,6 +89,7 @@ export async function getProducts({
         },
       },
       filters,
+      sort: ["publishedAt:desc"],
       pagination,
       locale,
     },

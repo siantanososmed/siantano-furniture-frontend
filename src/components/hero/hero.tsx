@@ -37,20 +37,22 @@ export default function Hero({
               data-aos="fade-down"
             />
           )}
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         <div
           className={cn(
-            "absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 bg-white/30 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xs shadow border border-white/30",
+            "absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2",
             "w-full max-w-xs md:max-w-lg lg:max-w-2xl"
           )}
           data-aos="fade-down"
         >
           <div className="overflow-hidden">
-            <div className="text-center p-6">
+            <div className="text-center p-6 text-white">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.2] tracking-tight">
                 {title}
               </h1>
-              <p className="mt-6 text-[17px] md:text-lg">{description}</p>
+              <p className="mt-6 text-lg">{description}</p>
               <div className="mt-12 flex items-center justify-center gap-4">
                 <Button
                   variant={type === "local" ? "default" : "secondary"}
