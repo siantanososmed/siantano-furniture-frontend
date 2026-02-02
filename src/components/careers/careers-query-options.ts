@@ -32,7 +32,7 @@ export async function getJobs({ query, pagination }: GetJobsParams) {
       params: {
         ...filter,
         pagination: {
-          pageSize: 5,
+          pageSize: 6,
           page: pagination?.page || 1,
         },
       },

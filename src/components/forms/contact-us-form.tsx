@@ -93,15 +93,11 @@ export default function ContactUsForm() {
   };
 
   return (
-    <form
-      data-aos="fade-down"
-      className="text-left"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form className="text-left" onSubmit={handleSubmit(onSubmit)}>
       <FieldSet>
         <FieldGroup>
-          <div className="grid md:grid-cols-2 gap-7">
-            <Field data-aos="fade-right" orientation="responsive">
+          <div className="grid md:grid-cols-2 gap-5">
+            <Field orientation="responsive">
               <FieldContent data-invalid={!!errors.name}>
                 <FieldLabel htmlFor={nameId}>
                   <div>
@@ -118,7 +114,7 @@ export default function ContactUsForm() {
                 <FieldError>{errors.name?.message}</FieldError>
               </FieldContent>
             </Field>
-            <Field data-aos="fade-left" orientation="responsive">
+            <Field orientation="responsive">
               <FieldContent data-invalid={!!errors.email}>
                 <FieldLabel htmlFor={emailId}>
                   <div>
@@ -137,8 +133,8 @@ export default function ContactUsForm() {
               </FieldContent>
             </Field>
           </div>
-          <div className="grid md:grid-cols-2 gap-7">
-            <Field data-aos="fade-right" orientation="responsive">
+          <div className="grid md:grid-cols-2 gap-5">
+            <Field orientation="responsive">
               <FieldContent data-invalid={!!errors.phone}>
                 <FieldLabel htmlFor={phoneId}>
                   <div>
@@ -156,7 +152,7 @@ export default function ContactUsForm() {
                 <FieldError>{errors.phone?.message}</FieldError>
               </FieldContent>
             </Field>
-            <Field data-aos="fade-left" orientation="responsive">
+            <Field orientation="responsive">
               <FieldContent data-invalid={!!errors.subject}>
                 <FieldLabel htmlFor={subjectId}>
                   <div>
@@ -175,7 +171,7 @@ export default function ContactUsForm() {
               </FieldContent>
             </Field>
           </div>
-          <Field data-aos="fade-up" orientation="responsive">
+          <Field orientation="responsive">
             <FieldContent data-invalid={!!errors.message}>
               <FieldLabel htmlFor={messageId}>
                 <div>
@@ -186,22 +182,18 @@ export default function ContactUsForm() {
               <Textarea
                 id={messageId}
                 placeholder={t("message.placeholder")}
-                className="min-h-[185px] resize-none"
+                className="min-h-[140px] resize-none"
                 {...register("message")}
                 aria-invalid={!!errors.message}
               />
               <FieldError>{errors.message?.message}</FieldError>
             </FieldContent>
           </Field>
-          <Field
-            data-aos="fade-up"
-            orientation="responsive"
-            className="justify-center"
-          >
+          <Field orientation="responsive" className="justify-center">
             <Button
               disabled={contactUsMutation.isPending}
               type="submit"
-              className="min-w-2/3"
+              className="w-full"
             >
               {contactUsMutation.isPending ? <Spinner /> : t("submit")}
             </Button>

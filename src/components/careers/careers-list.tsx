@@ -30,13 +30,13 @@ export default function CareersList() {
   const { data, isLoading, isFetching } = useQuery(
     careersQueryOptions({
       query: query,
-      pagination: { page: page, pageSize: 5 },
+      pagination: { page: page, pageSize: 6 },
     })
   );
 
   if (isFetching || isLoading) {
     return (
-      <div className="inline-flex justify-center items-center py-6 min-h-[452px]">
+      <div className="inline-flex w-full justify-center items-center py-6 min-h-[300px]">
         <Spinner className="size-8" />
       </div>
     );
@@ -47,20 +47,21 @@ export default function CareersList() {
       {data?.data.length === 0 ? (
         <div
           data-aos="zoom-in"
-          className="inline-flex justify-center items-center py-6 min-h-[452px]"
+          className="inline-flex justify-center items-center py-6 min-h-[300px]"
         >
           No job listings found.
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-4 min-h-[452px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-16 mb-10">
             {data?.data.map((job, index) => (
               <Item
-                data-aos="fade-right"
+                data-aos="fade-up"
                 data-aos-delay={index * 100}
                 key={job.documentId}
                 variant="outline"
                 asChild
+                className="hover:shadow-md transition-shadow"
               >
                 <Link
                   href={{

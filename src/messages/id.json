@@ -69,9 +69,9 @@
   },
   "ContactUs": {
     "contactUs": "Hubungi Kami",
-    "description": "Hai! Punya pertanyaan tentang produk kami atau berencana mengunjungi showroom? <br /> Atau ingin mewujudkan ide desainmu, dari konsep hingga menjadi produk jadi? <br /> Tinggalkan pesanmu, dan tim kami akan segera menghubungimu kembali.",
-    "location": "Berlokasi di Malang – Jawa Timur, Indonesia",
-    "letsCreateTogether": "Let’s Create Together",
+    "getInTouch": "Hubungi kami",
+    "description": "Untuk pertanyaan bisnis, kerja sama, atau proyek furnitur custom, silakan menghubungi tim kami. Kami bekerja sama dengan mitra di dalam negeri maupun internasional untuk mendukung kebutuhan proyek jangka pendek maupun jangka panjang.",
+    "descriptionSecondary": "Anda dapat menghubungi kami melalui detail kontak di bawah ini atau mengirimkan pertanyaan melalui formulir, dan tim kami akan merespons secepat mungkin.",
     "form": {
       "name": {
         "label": "Nama",
@@ -115,7 +115,9 @@
   },
   "Careers": {
     "careers": "Karir",
-    "searchJobs": "Cari Pekerjaan",
+    "interestedInJoining": "Tertarik begabung bersama kami?",
+    "description": "Kami menghargai individu yang memiliki kebanggaan terhadap pekerjaannya. Jika Anda termotivasi, teliti, dan ingin berkembang, kami mengundang Anda untuk membangun karier bersama Siantano Furniture.",
+    "searchJobs": "Cari lowongan",
     "applyNow": "Lamar Sekarang",
     "form": {
       "subject": {

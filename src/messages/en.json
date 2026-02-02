@@ -69,9 +69,9 @@
   },
   "ContactUs": {
     "contactUs": "Contact Us",
-    "description": "Hi! Got a question about our products or planning to visit our showroom? <br /> We can also help bring your custom designs ideas to life. <br /> Just drop us a message and we’ll get back to you as soon as we can.",
-    "location": "Based in Malang – East Java, Indonesia",
-    "letsCreateTogether": "Let’s Create Together",
+    "getInTouch": "Get in touch",
+    "description": "For business inquiries, partnerships, or custom furniture projects, please get in touch with our team. We work with partners both locally and internationally to support project-specific and long-term requirements.",
+    "descriptionSecondary": "You may reach us using the contact details below or submit an inquiry through the form, and our team will respond as soon as possible.",
     "form": {
       "name": {
         "label": "Name",
@@ -115,7 +115,9 @@
   },
   "Careers": {
     "careers": "Careers",
-    "searchJobs": "Search Jobs",
+    "interestedInJoining": "Interested in joining us?",
+    "description": "We value people who take pride in their work. If you are motivated and detail-oriented, we invite you to grow your career with Siantano Furniture.",
+    "searchJobs": "Search bar",
     "applyNow": "Apply Now",
     "form": {
       "subject": {

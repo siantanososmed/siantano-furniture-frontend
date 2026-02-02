@@ -36,15 +36,27 @@ export default async function CareersPage({
         imageUrl={heroImg?.data?.careerHero?.url || ""}
         title={t("careers")}
       />
-      <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 my-6">
-        <div data-aos="zoom-in">
+      <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
+        <div className="text-center space-y-4 mb-10">
+          <h2
+            data-aos="fade-down"
+            className="text-3xl md:text-4xl font-bold text-gray-900"
+          >
+            {t("interestedInJoining")}
+          </h2>
+          <p
+            data-aos="fade-up"
+            className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg"
+          >
+            {t("description")}
+          </p>
+        </div>
+        <div data-aos="zoom-in" className="max-w-2xl mx-auto mb-8">
           <CareersSearch />
         </div>
-        <div className="flex flex-col gap-4">
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <CareersList />
-          </HydrationBoundary>
-        </div>
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <CareersList />
+        </HydrationBoundary>
       </section>
     </>
   );
