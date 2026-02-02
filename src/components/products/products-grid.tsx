@@ -39,7 +39,18 @@ export default function ProductsGrid() {
     })
   );
 
-  const products = data?.data || [];
+  // Deduplicate products by documentId (API may return duplicates when filtering by relations)
+  const products = useMemo(() => {
+    const rawProducts = data?.data || [];
+    const seen = new Set<string>();
+    return rawProducts.filter((product) => {
+      if (seen.has(product.documentId)) {
+        return false;
+      }
+      seen.add(product.documentId);
+      return true;
+    });
+  }, [data?.data]);
   const pagination = data?.meta.pagination;
   const totalPages = pagination?.pageCount || 1;
 

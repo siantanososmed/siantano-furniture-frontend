@@ -25,8 +25,10 @@ export default function CareersSearch() {
       const params = {
         ...queryUrlToObject(searchParams),
         query: value,
-        page: 1,
       } as { [key: string]: string | number | undefined };
+
+      // Reset to first page when searching
+      delete params.page;
 
       if (value === "") {
         delete params.query;

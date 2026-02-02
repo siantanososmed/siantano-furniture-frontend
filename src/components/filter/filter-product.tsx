@@ -54,6 +54,9 @@ export default function FilterProduct({
 
     currentFilters[type] = updatedValues;
 
+    // Reset to first page when filters change
+    delete currentFilters.page;
+
     router.push({
       pathname,
       query: currentFilters,

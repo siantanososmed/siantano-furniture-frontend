@@ -22,6 +22,7 @@ export default function CatalogCategory({
 
   const restCategory = Object.fromEntries(searchParams.entries());
   delete restCategory.category;
+  delete restCategory.page; // Reset to first page when category changes
 
   return (
     <Carousel
@@ -58,7 +59,7 @@ export default function CatalogCategory({
                 href={{
                   pathname,
                   query: {
-                    ...Object.fromEntries(searchParams.entries()),
+                    ...restCategory,
                     category: category.slug,
                   },
                 }}
