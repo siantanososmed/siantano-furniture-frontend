@@ -65,6 +65,7 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
       page: currentPage,
       filter: {
         category,
+        quality: type,
         color:
           typeof restSearchParams.colors === "string"
             ? [restSearchParams.colors]

@@ -21,6 +21,10 @@ export default function ProductsGrid() {
   const pathname = usePathname();
   const query = useSearchParams();
 
+  // Extract quality (local/export) from pathname: /catalog/[type]
+  const pathSegments = pathname.split("/");
+  const quality = pathSegments[2]; // "local" or "export"
+
   const colorsQueries = query.getAll("colors");
   const materialsQueries = query.getAll("materials");
   const finishesQueries = query.getAll("finishes");
@@ -32,6 +36,7 @@ export default function ProductsGrid() {
       page: currentPage,
       filter: {
         category: query.get("category") || undefined,
+        quality: quality,
         color: colorsQueries.length > 0 ? colorsQueries : undefined,
         material: materialsQueries.length > 0 ? materialsQueries : undefined,
         finish: finishesQueries.length > 0 ? finishesQueries : undefined,

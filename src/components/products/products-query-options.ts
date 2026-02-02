@@ -13,6 +13,7 @@ type GetProductsParams = {
     finish?: string[];
     category?: string;
     search?: string;
+    quality?: string;
   };
   sort?: {
     by: "category" | "name";
@@ -35,11 +36,18 @@ export async function getProducts({
     };
   }
 
-  if (filter?.category) {
+  if (filter?.category || filter?.quality) {
     filters.category = {
-      slug: {
-        $eqi: filter.category,
-      },
+      ...(filter?.category && {
+        slug: {
+          $eqi: filter.category,
+        },
+      }),
+      ...(filter?.quality && {
+        quality: {
+          $eqi: filter.quality,
+        },
+      }),
     };
   }
 
