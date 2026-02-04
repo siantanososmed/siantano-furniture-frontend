@@ -1,9 +1,11 @@
+import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { getQueryClient } from "@/components/tanstack-query/get-query-client";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { productsQueryOptions } from "@/components/products/products-query-options";
 import CategoryBreadcrumb from "@/components/breadcrumb/category-breadcrumb";
 import SearchProductsGrid from "@/components/search/search-products-grid";
+import { generateSearchMetadata, type LocaleType } from "@/lib/seo";
 
 type SearchPageProps = {
   searchParams: Promise<{
@@ -11,6 +13,15 @@ type SearchPageProps = {
     page?: string;
   }>;
 };
+
+export async function generateMetadata({
+  searchParams,
+}: SearchPageProps): Promise<Metadata> {
+  const { q } = await searchParams;
+  const locale = (await getLocale()) as LocaleType;
+
+  return generateSearchMetadata(q, locale);
+}
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const { q: searchQuery, page } = await searchParams;

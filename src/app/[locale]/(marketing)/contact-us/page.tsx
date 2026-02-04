@@ -1,6 +1,7 @@
+import { Metadata } from "next";
 import ContactUsForm from "@/components/forms/contact-us-form";
 import { Toaster } from "@/components/ui/sonner";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import PageHero from "@/components/hero/page-hero";
 import { getHeroImage } from "@/actions/action";
 import { getFulfilledValue } from "@/lib/utils";
@@ -11,6 +12,23 @@ import {
   Tiktok,
   Whatsapp,
 } from "@/components/icons/custom-icons";
+import {
+  generatePageMetadata,
+  getPageSeo,
+  type LocaleType,
+} from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await getLocale()) as LocaleType;
+  const seo = getPageSeo("contactUs", locale);
+
+  return generatePageMetadata({
+    title: seo?.title || "Contact Us",
+    description: seo?.description || "",
+    locale,
+    path: "/contact-us",
+  });
+}
 
 export default async function ContactUsPage() {
   const t = await getTranslations("ContactUs");

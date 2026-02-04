@@ -1,5 +1,5 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Fragment } from "react";
 import CategoryBreadcrumb from "@/components/breadcrumb/category-breadcrumb";
 import { getLocale, getTranslations } from "next-intl/server";
 import { getQueryClient } from "@/components/tanstack-query/get-query-client";
@@ -15,6 +15,30 @@ import {
   getMaterialOptions,
 } from "@/actions/action";
 import { getFulfilledValue } from "@/lib/utils";
+import { generateCatalogMetadata, type LocaleType } from "@/lib/seo";
+
+type CatalogMetadataProps = {
+  params: Promise<{ type: string }>;
+  searchParams: Promise<{ category?: string }>;
+};
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: CatalogMetadataProps): Promise<Metadata> {
+  const { type } = await params;
+  const { category } = await searchParams;
+  const locale = (await getLocale()) as LocaleType;
+
+  if (!["local", "export"].includes(type)) {
+    return {
+      title: "Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  return generateCatalogMetadata(type as "local" | "export", locale, category);
+}
 
 type CatalogProps = {
   params: Promise<{ type: string }>;

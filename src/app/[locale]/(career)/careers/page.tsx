@@ -1,12 +1,30 @@
+import { Metadata } from "next";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { getQueryClient } from "@/components/tanstack-query/get-query-client";
 import CareersList from "@/components/careers/careers-list";
 import { careersQueryOptions } from "@/components/careers/careers-query-options";
 import CareersSearch from "@/components/careers/careers-search";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import PageHero from "@/components/hero/page-hero";
 import { getHeroImage } from "@/actions/action";
 import { getFulfilledValue } from "@/lib/utils";
+import {
+  generatePageMetadata,
+  getPageSeo,
+  type LocaleType,
+} from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await getLocale()) as LocaleType;
+  const seo = getPageSeo("careers", locale);
+
+  return generatePageMetadata({
+    title: seo?.title || "Careers",
+    description: seo?.description || "",
+    locale,
+    path: "/careers",
+  });
+}
 
 export default async function CareersPage({
   searchParams,

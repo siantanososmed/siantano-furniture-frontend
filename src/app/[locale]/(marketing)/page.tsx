@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Hero from "@/components/hero/hero";
 import RecommendedProducts from "@/components/recommended-products/recommended-products";
 import Showcase from "@/components/showcase/showcase";
@@ -12,6 +13,23 @@ import {
 } from "@/actions/action";
 import { getFulfilledValue } from "@/lib/utils";
 import NewArrival from "@/components/new-arrivals/new-arrival";
+import {
+  generatePageMetadata,
+  getPageSeo,
+  type LocaleType,
+} from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await getLocale()) as LocaleType;
+  const seo = getPageSeo("home", locale);
+
+  return generatePageMetadata({
+    title: seo?.title || "Siantano Furniture",
+    description: seo?.description || "",
+    locale,
+    path: "/",
+  });
+}
 
 export default async function Home({
   searchParams,

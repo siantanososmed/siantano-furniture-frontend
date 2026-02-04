@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import {
   Accordion,
   AccordionContent,
@@ -10,6 +11,41 @@ import ProductColorSelector from "@/components/color-selector/product-color-sele
 import { getProduct } from "@/actions/action";
 import { getFulfilledValue } from "@/lib/utils";
 import DOMPurify from "isomorphic-dompurify";
+import {
+  generateProductMetadata,
+  generateProductSchema,
+  generateBreadcrumbSchema,
+  SITE_CONFIG,
+  type LocaleType,
+} from "@/lib/seo";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const locale = (await getLocale()) as LocaleType;
+
+  try {
+    const productResponse = await getProduct({ slug, locale });
+    const product = productResponse?.data;
+
+    if (!product) {
+      return {
+        title: "Product Not Found",
+        robots: { index: false, follow: false },
+      };
+    }
+
+    return generateProductMetadata(product, locale);
+  } catch {
+    return {
+      title: "Product Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+}
 
 export default async function ProductDetail({
   params,
@@ -36,8 +72,41 @@ export default async function ProductDetail({
     product.product_colors.find((el) => el.color.slug === color) ||
     product.product_colors[0];
 
+  // Generate JSON-LD schemas for SEO
+  const productSchema = generateProductSchema(product, locale);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    {
+      name: "Home",
+      url: `${SITE_CONFIG.baseUrl}${locale === "id" ? "" : `/${locale}`}`,
+    },
+    {
+      name:
+        product.category?.quality === "export"
+          ? "Export Products"
+          : "Local Products",
+      url: `${SITE_CONFIG.baseUrl}${locale === "id" ? "" : `/${locale}`}/catalog/${product.category?.quality?.toLowerCase() || "local"}`,
+    },
+    {
+      name: product.category?.name || "",
+      url: `${SITE_CONFIG.baseUrl}${locale === "id" ? "" : `/${locale}`}/catalog/${product.category?.quality?.toLowerCase() || "local"}`,
+    },
+    {
+      name: product.name,
+      url: `${SITE_CONFIG.baseUrl}${locale === "id" ? "" : `/${locale}`}/product/${product.slug}`,
+    },
+  ]);
+
   return (
-    <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 mt-3">
       <div className="flex flex-col md:flex-row gap-5">
         <div className="block md:hidden space-y-3">
           <h1 data-aos="fade-down" className="text-3xl font-bold">
@@ -120,5 +189,6 @@ export default async function ProductDetail({
         </div>
       </div>
     </section>
+    </>
   );
 }
