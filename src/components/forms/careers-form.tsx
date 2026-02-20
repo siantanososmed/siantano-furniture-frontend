@@ -119,43 +119,43 @@ export default function CareersForm({
               />
             </FieldContent>
           </Field>
-          <Field data-aos="fade-right" orientation="responsive">
-            <FieldContent data-invalid={!!errors.name}>
-              <FieldLabel htmlFor={nameId}>
-                <div>
-                  <span>{t("name.label")}</span>
-                  <span className="text-destructive">*</span>
-                </div>
-              </FieldLabel>
-              <Input
-                id={nameId}
-                placeholder={t("name.placeholder")}
-                className="md:min-w-96"
-                {...register("name")}
-                aria-invalid={!!errors.name}
-              />
-              <FieldError>{errors.name?.message}</FieldError>
-            </FieldContent>
-          </Field>
-          <Field data-aos="fade-left" orientation="responsive">
-            <FieldContent data-invalid={!!errors.email}>
-              <FieldLabel htmlFor={emailId}>
-                <div>
-                  <span>{t("email.label")}</span>
-                  <span className="text-destructive">*</span>
-                </div>
-              </FieldLabel>
-              <Input
-                id={emailId}
-                type="email"
-                placeholder={t("email.placeholder")}
-                className="md:min-w-96"
-                {...register("email")}
-                aria-invalid={!!errors.email}
-              />
-              <FieldError>{errors.email?.message}</FieldError>
-            </FieldContent>
-          </Field>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Field data-aos="fade-right" orientation="vertical">
+              <FieldContent data-invalid={!!errors.name}>
+                <FieldLabel htmlFor={nameId}>
+                  <div>
+                    <span>{t("name.label")}</span>
+                    <span className="text-destructive">*</span>
+                  </div>
+                </FieldLabel>
+                <Input
+                  id={nameId}
+                  placeholder={t("name.placeholder")}
+                  {...register("name")}
+                  aria-invalid={!!errors.name}
+                />
+                <FieldError>{errors.name?.message}</FieldError>
+              </FieldContent>
+            </Field>
+            <Field data-aos="fade-left" orientation="vertical">
+              <FieldContent data-invalid={!!errors.email}>
+                <FieldLabel htmlFor={emailId}>
+                  <div>
+                    <span>{t("email.label")}</span>
+                    <span className="text-destructive">*</span>
+                  </div>
+                </FieldLabel>
+                <Input
+                  id={emailId}
+                  type="email"
+                  placeholder={t("email.placeholder")}
+                  {...register("email")}
+                  aria-invalid={!!errors.email}
+                />
+                <FieldError>{errors.email?.message}</FieldError>
+              </FieldContent>
+            </Field>
+          </div>
           <Field data-aos="fade-right" orientation="responsive">
             <FieldContent data-invalid={!!errors.phone}>
               <FieldLabel htmlFor={phoneId}>
@@ -194,7 +194,7 @@ export default function CareersForm({
             </FieldContent>
           </Field>
           <FieldSeparator data-aos="fade-up" />
-          <Field data-aos="fade-up" orientation="responsive">
+          <Field orientation="responsive">
             <Button
               disabled={applyCareersMutation.isPending}
               type="submit"
