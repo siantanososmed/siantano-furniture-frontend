@@ -56,7 +56,7 @@ export default function ProductsGrid() {
       return true;
     });
   }, [data?.data]);
-  const pagination = data?.meta.pagination;
+  const pagination = data?.meta?.pagination;
   const totalPages = pagination?.pageCount || 1;
 
   // Build URL with page parameter while preserving other query params

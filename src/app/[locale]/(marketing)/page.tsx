@@ -68,14 +68,14 @@ export default async function Home({
   return (
     <>
       <Hero
-        title={hero?.data.title}
-        description={hero?.data.description}
-        videoUrl={hero?.data.media.url}
+        title={hero?.data?.title}
+        description={hero?.data?.description}
+        videoUrl={hero?.data?.media?.url}
       />
       <Category categories={categories?.data || []} />
-      <NewArrival products={newArrivalsProducts?.data.products || []} />
+      <NewArrival products={newArrivalsProducts?.data?.products ?? []} />
       <RecommendedProducts
-        products={recommendedProducts?.data.products || []}
+        products={recommendedProducts?.data?.products ?? []}
       />
       <Showcase showcases={showcase?.data || []} />
     </>

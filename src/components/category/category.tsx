@@ -61,8 +61,8 @@ export default function Category({
                     }}
                   >
                     <Image
-                      src={category.icon.url}
-                      alt={category.icon.alternativeText || category.name}
+                      src={category.icon?.url ?? ""}
+                      alt={category.icon?.alternativeText || category.name}
                       width={60}
                       height={60}
                       className="size-14"

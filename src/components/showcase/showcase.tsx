@@ -29,23 +29,23 @@ export default function Showcase({
               <CarouselItem key={showcase.documentId}>
                 <div className="grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(20,1fr)] place-items-start overflow-hidden">
                   <ShowcaseImage
-                    imageUrl={showcase.image.url}
-                    imageAlt={showcase.image.alternativeText || showcase.name}
+                    imageUrl={showcase.image?.url ?? ""}
+                    imageAlt={showcase.image?.alternativeText || showcase.name}
                   />
-                  {showcase.showcase_points.map((hotspot) => (
+                  {(showcase.showcase_points ?? []).filter(h => h.product?.thumbnail?.url).map((hotspot) => (
                     <ShowcaseHotspot
                       key={hotspot.documentId}
                       rowStart={hotspot.row}
                       rowEnd={hotspot.row + 1}
                       colStart={hotspot.column}
                       colEnd={hotspot.column + 1}
-                      title={hotspot.product.name}
-                      slug={hotspot.product.slug}
+                      title={hotspot.product?.name}
+                      slug={hotspot.product?.slug}
                       thumbnailAlt={
-                        hotspot.product.thumbnail.alternativeText ||
-                        hotspot.product.name
+                        hotspot.product?.thumbnail?.alternativeText ||
+                        hotspot.product?.name
                       }
-                      thumbnailUrl={hotspot.product.thumbnail.url}
+                      thumbnailUrl={hotspot.product?.thumbnail?.url ?? ""}
                     />
                   ))}
                 </div>

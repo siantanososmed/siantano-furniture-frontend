@@ -27,9 +27,9 @@ const ProductCard = memo(
       >
         <div className="relative w-full aspect-square overflow-hidden">
           <Image
-            src={product.thumbnail.url}
+            src={product.thumbnail?.url ?? ""}
             priority
-            alt={product.thumbnail.alternativeText || product.name}
+            alt={product.thumbnail?.alternativeText || product.name}
             width={600}
             height={600}
             className="w-full h-full object-cover absolute inset-0 transition-opacity duration-300 group-hover/card:opacity-0"

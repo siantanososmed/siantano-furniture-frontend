@@ -65,8 +65,8 @@ export default function CatalogCategory({
                 }}
               >
                 <Image
-                  src={category.icon.url}
-                  alt={category.icon.alternativeText || category.name}
+                  src={category.icon?.url ?? ""}
+                  alt={category.icon?.alternativeText || category.name}
                   width={60}
                   height={60}
                   className="size-16 bg-gray-400/20 p-3 rounded-lg"

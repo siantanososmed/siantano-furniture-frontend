@@ -23,6 +23,7 @@ export async function getHero({ locale }: { locale: string }) {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch hero");
   return response.data;
 }
 
@@ -58,6 +59,7 @@ export async function getRecommendedProducts({ locale }: { locale: string }) {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch recommended products");
   return response.data;
 }
 
@@ -93,6 +95,7 @@ export async function getNewArrivalsProducts({ locale }: { locale: string }) {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch new arrivals products");
   return response.data;
 }
 
@@ -129,6 +132,7 @@ export async function getShowcase({ locale }: { locale: string }) {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch showcase");
   return response.data;
 }
 
@@ -156,6 +160,7 @@ export async function getOurStory({ locale }: { locale: string }) {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch our story");
   return response.data;
 }
 
@@ -192,6 +197,7 @@ export async function getCategories({
     }
   );
 
+  if (!response) throw new Error("Failed to fetch categories");
   return response.data;
 }
 
@@ -210,6 +216,7 @@ export async function getMaterialOptions() {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch material options");
   return response.data;
 }
 
@@ -228,6 +235,7 @@ export async function getColorOptions() {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch color options");
   return response.data;
 }
 
@@ -246,6 +254,7 @@ export async function getFinishOptions() {
     }
   );
 
+  if (!response) throw new Error("Failed to fetch finish options");
   return response.data;
 }
 
@@ -270,6 +279,7 @@ export async function getProduct({
     }
   );
 
+  if (!response) throw new Error("Failed to fetch product");
   return response.data;
 }
 
@@ -303,6 +313,7 @@ export async function getDetailJob({ slug }: { slug: string }) {
       },
     }
   );
+  if (!response) throw new Error("Failed to fetch job detail");
   return response.data;
 }
 
@@ -355,5 +366,6 @@ export async function getHeroImage() {
       },
     }
   );
+  if (!response) throw new Error("Failed to fetch hero image");
   return response.data;
 }

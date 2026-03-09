@@ -44,7 +44,7 @@ export default function CareersList() {
 
   return (
     <>
-      {data?.data.length === 0 ? (
+      {(data?.data?.length ?? 0) === 0 ? (
         <div
           data-aos="zoom-in"
           className="inline-flex justify-center items-center py-6 min-h-[300px]"
@@ -54,7 +54,7 @@ export default function CareersList() {
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-16 mb-10">
-            {data?.data.map((job, index) => (
+            {(data?.data ?? []).map((job, index) => (
               <Item
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
@@ -82,7 +82,7 @@ export default function CareersList() {
 
           <Pagination>
             <PaginationContent>
-              {data?.meta.pagination && data.meta.pagination.page > 1 && (
+              {data?.meta?.pagination && data.meta.pagination.page > 1 && (
                 <PaginationItem>
                   <PaginationPrevious
                     href={{
@@ -96,7 +96,7 @@ export default function CareersList() {
                 </PaginationItem>
               )}
               {Array.from({
-                length: data?.meta.pagination.pageCount || 0,
+                length: data?.meta?.pagination?.pageCount ?? 0,
               }).map((_, i) => (
                 <PaginationItem key={i}>
                   <PaginationLink
@@ -107,13 +107,13 @@ export default function CareersList() {
                         page: i + 1,
                       },
                     }}
-                    isActive={i + 1 === data?.meta.pagination.page}
+                    isActive={i + 1 === data?.meta?.pagination?.page}
                   >
                     {i + 1}
                   </PaginationLink>
                 </PaginationItem>
               ))}
-              {data?.meta.pagination &&
+              {data?.meta?.pagination &&
                 data.meta.pagination.page < data.meta.pagination.pageCount && (
                   <PaginationItem>
                     <PaginationNext
@@ -123,7 +123,7 @@ export default function CareersList() {
                           ...queryUrlToObject(searchParams),
                           page: Math.min(
                             page + 1,
-                            data?.meta.pagination.pageCount || 1
+                            data?.meta?.pagination?.pageCount ?? 1
                           ),
                         },
                       }}

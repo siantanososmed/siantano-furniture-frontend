@@ -79,7 +79,7 @@ export default async function Catalog({ params, searchParams }: CatalogProps) {
   const finishes = getFulfilledValue(finishPromise, "catalog.finishes");
 
   const pageBreadcrumb =
-    categories?.data.find((cat) => cat.slug === category)?.name ||
+    (categories?.data ?? []).find((cat) => cat.slug === category)?.name ||
     t("allCategories");
 
   const queryClient = getQueryClient();

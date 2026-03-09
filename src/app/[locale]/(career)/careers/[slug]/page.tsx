@@ -79,10 +79,10 @@ export default async function CareerDetails({
         {/* Full-width title + experience */}
         <div className="flex flex-col">
           <span data-aos="fade-down" className="text-3xl font-semibold">
-            {job?.data.position}
+            {job?.data?.position}
           </span>
           <span data-aos="fade-down" className="text-muted-foreground font-bold">
-            {job?.data.experience}
+            {job?.data?.experience}
           </span>
         </div>
         <hr className="border-border" />
@@ -92,7 +92,7 @@ export default async function CareerDetails({
           <article
             data-aos="fade-down"
             className="ck-content ckeditor-result"
-            dangerouslySetInnerHTML={{ __html: job?.data.description || "" }}
+            dangerouslySetInnerHTML={{ __html: job?.data?.description ?? "" }}
           />
           {/* Right Column - Application Form */}
           <Card>
@@ -103,9 +103,9 @@ export default async function CareerDetails({
             </CardHeader>
             <CardContent>
               <CareersForm
-                jobSlug={job?.data.slug || slug}
-                experience={job?.data.experience || ""}
-                position={job?.data.position || ""}
+                jobSlug={job?.data?.slug || slug}
+                experience={job?.data?.experience ?? ""}
+                position={job?.data?.position ?? ""}
               />
             </CardContent>
           </Card>

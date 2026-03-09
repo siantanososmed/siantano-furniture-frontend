@@ -39,8 +39,8 @@ export default function RecommendedProducts({
                     href={"/product/" + product.slug}
                     key={product.documentId}
                     title={product.name}
-                    image={product.thumbnail.url}
-                    imageAlt={product.thumbnail.alternativeText || product.name}
+                    image={product.thumbnail?.url ?? ""}
+                    imageAlt={product.thumbnail?.alternativeText || product.name}
                     hoverImage={
                       product.product_colors?.[0]?.productMedia?.[0]?.url
                     }

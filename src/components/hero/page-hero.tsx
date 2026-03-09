@@ -14,14 +14,16 @@ export default function PageHero({
   return (
     <section className={cn("relative", className)}>
       <div className="w-full h-[300px] md:h-[400px]">
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          priority
-          className="object-cover"
-          data-aos="fade-down"
-        />
+        {imageUrl && (
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            priority
+            className="object-cover"
+            data-aos="fade-down"
+          />
+        )}
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40" />
       </div>

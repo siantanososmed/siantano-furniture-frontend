@@ -38,7 +38,7 @@ export default function ProductColorSelector({
         className="block"
       >
         {t("color")}:{" "}
-        <span className="font-semibold">{selectedColor?.color.name}</span>
+        <span className="font-semibold">{selectedColor?.color?.name}</span>
       </div>
       <div className="flex flex-row flex-wrap gap-5">
         {colors.map((color, i) => (
@@ -48,15 +48,15 @@ export default function ProductColorSelector({
             key={color.documentId}
             className={cn(
               "size-16 hover:scale-105 transition cursor-pointer",
-              selectedColor?.color.slug === color.color.slug &&
+              selectedColor?.color?.slug === color.color?.slug &&
                 "border border-black"
             )}
-            onClick={() => handleColorChange(color.color.slug)}
+            onClick={() => handleColorChange(color.color?.slug)}
           >
             <div className="size-full p-1 border">
               <Image
-                src={color.color.sample.url}
-                alt={color.color.sample.alternativeText || color.color.name}
+                src={color.color?.sample?.url ?? ""}
+                alt={color.color?.sample?.alternativeText || color.color?.name}
                 width={100}
                 height={100}
                 className="aspect-square object-cover"

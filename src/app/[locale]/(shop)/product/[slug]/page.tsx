@@ -69,8 +69,8 @@ export default async function ProductDetail({
   }
 
   const selectedColor =
-    product.product_colors.find((el) => el.color.slug === color) ||
-    product.product_colors[0];
+    product.product_colors?.find((el) => el.color?.slug === color) ??
+    product.product_colors?.[0];
 
   // Generate JSON-LD schemas for SEO
   const productSchema = generateProductSchema(product, locale);
@@ -143,19 +143,19 @@ export default async function ProductDetail({
             data-aos="fade-down"
             className="space-y-3 ckeditor-content ckeditor-result"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(product.description),
+              __html: DOMPurify.sanitize(product.description ?? ""),
             }}
           ></div>
           <div data-aos="fade-down" className="space-y-3">
             <span className="font-semibold">{t("material")}:</span>
             <div>
-              {product.materials.map((material) => material.name).join(", ")}
+              {(product.materials ?? []).map((material) => material.name).join(", ")}
             </div>
           </div>
           <div data-aos="fade-down">
             <span className="font-semibold">{t("finish")}:</span>
             <div>
-              {product.finishings.map((finishing) => finishing.name).join(", ")}
+              {(product.finishings ?? []).map((finishing) => finishing.name).join(", ")}
             </div>
           </div>
           <Accordion type="multiple">
@@ -167,7 +167,7 @@ export default async function ProductDetail({
                 <div
                   className="ck-content ckeditor-result"
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(product.dimension),
+                    __html: DOMPurify.sanitize(product.dimension ?? ""),
                   }}
                 ></div>
               </AccordionContent>
@@ -180,7 +180,7 @@ export default async function ProductDetail({
                 <div
                   className="ck-content ckeditor-result"
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(product.weight),
+                    __html: DOMPurify.sanitize(product.weight ?? ""),
                   }}
                 ></div>
               </AccordionContent>
