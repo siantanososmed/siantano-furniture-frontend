@@ -43,7 +43,26 @@
     "new": "BARU"
   },
   "OurStory": {
-    "ourStory": "Tentang Kami"
+    "ourStory": "Tentang Kami",
+    "intro": "Siantano adalah perusahaan furnitur asal Indonesia yang telah berdiri sejak tahun 1998. Berawal dari usaha kecil di bidang pengolahan kayu, Siantano terus berkembang menjadi produsen furnitur yang dipercaya baik di pasar domestik maupun internasional. Dengan mengedepankan kualitas bahan baku, ketelitian dalam proses produksi, dan desain yang mengikuti kebutuhan pasar, Siantano berkomitmen untuk menghadirkan furnitur yang fungsional, tahan lama, dan bernilai estetika tinggi.",
+    "milestones": {
+      "1998": {
+        "year": "1998",
+        "text": "Perjalanan kami dimulai pada tahun 1998, ketika Siantano pertama kali berdiri sebagai usaha pengolahan kayu skala kecil. Dengan tekad dan kerja keras, kami memulai langkah awal dalam industri furnitur Indonesia."
+      },
+      "2007": {
+        "year": "2007",
+        "text": "Seiring berkembangnya permintaan pasar, pada tahun 2007 kami mulai melakukan investasi pada mesin-mesin produksi modern. Langkah ini memungkinkan kami meningkatkan kapasitas dan konsistensi kualitas produk secara signifikan."
+      },
+      "2009": {
+        "year": "2009",
+        "text": "Pada tahun 2009, Siantano memperluas fasilitas produksinya dengan membangun gudang dan area produksi yang lebih besar. Ekspansi ini menjadi tonggak penting dalam perjalanan kami untuk melayani pasar yang lebih luas."
+      },
+      "present": {
+        "year": "",
+        "text": "Kini, setelah lebih dari dua dekade berkarya, Siantano telah berkembang menjadi produsen furnitur terpercaya dengan jaringan distribusi nasional dan internasional. Kami terus berinovasi dalam desain dan proses produksi untuk menghadirkan furnitur berkualitas tinggi yang memenuhi standar global."
+      }
+    }
   },
   "Catalog": {
     "allCategories": "Semua Kategori",
