@@ -14,7 +14,7 @@ const milestones = [
   },
   {
     key: "2007",
-    images: ["/our-story (2).png"],
+    images: ["/our-story (3).png"],
     layout: "text-right" as const,
   },
   {
@@ -24,7 +24,7 @@ const milestones = [
   },
   {
     key: "present",
-    images: ["/our-story (3).png"],
+    images: ["/our-story (2).png"],
     layout: "text-right" as const,
   },
 ];
@@ -35,7 +35,7 @@ export default async function OurStoryContent() {
   return (
     <div className="overflow-x-hidden py-20">
       <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-16 md:space-y-20">
+        <div className="space-y-8 md:space-y-0">
           {milestones.map((milestone) => {
             const year =
               milestone.key === "intro"
@@ -50,10 +50,10 @@ export default async function OurStoryContent() {
             const textBlock = (
               <div
                 data-aos={isTextLeft ? "fade-right" : "fade-left"}
-                className="flex flex-col justify-center"
+                className="flex flex-col justify-center h-full"
               >
                 {year && (
-                  <h2 className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-primary leading-none mb-4">
+                  <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary leading-none mb-4">
                     {year}
                   </h2>
                 )}
