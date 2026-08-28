@@ -70,15 +70,6 @@ export default async function Footer() {
                 <Whatsapp className="h-5 w-5 fill-muted-foreground" />
               </Link>
               <Link
-                aria-label="Chat on WhatsApp"
-                href="https://wa.me/628123252388"
-                target="_blank"
-                rel="noopener noreferrer"
-                title={"Siantano 2"}
-              >
-                <Whatsapp className="h-5 w-5 fill-muted-foreground" />
-              </Link>
-              <Link
                 href="https://www.tiktok.com/@siantano_furniture"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -81,16 +81,6 @@ export default async function ContactUsPage() {
                     <Whatsapp className="h-6 w-6 fill-current" />
                   </Link>
                   <Link
-                    aria-label="Chat on WhatsApp"
-                    href="https://wa.me/628123252388"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Siantano WhatsApp"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
-                  >
-                    <Whatsapp className="h-6 w-6 fill-current" />
-                  </Link>
-                  <Link
                     href="https://www.instagram.com/siantano_furniture"
                     target="_blank"
                     rel="noopener noreferrer"
