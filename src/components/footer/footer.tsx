@@ -2,6 +2,7 @@ import { Separator } from "@/components/ui/separator";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/navbar/logo";
 import { getTranslations } from "next-intl/server";
+import { MapPin, Phone } from "lucide-react";
 import {
   Instagram,
   Mail,
@@ -49,6 +50,33 @@ export default async function Footer() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6 max-w-sm" data-aos="zoom-in">
+                <p className="font-medium text-foreground">
+                  PT Nathania Furniture
+                </p>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+                    <span>
+                      JL. TUNGGUL AMETUNG NOMOR 179 SINGOSARI, Desa/Kelurahan
+                      Candirenggo, Kec. Singosari, Kab. Malang, Provinsi Jawa
+                      Timur, Kode Pos: 65153
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 shrink-0" />
+                    <Link
+                      href="https://wa.me/6281284903630"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground"
+                    >
+                      081284903630
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <Separator />
