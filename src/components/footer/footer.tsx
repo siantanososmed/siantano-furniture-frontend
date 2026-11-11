@@ -67,12 +67,12 @@ export default async function Footer() {
                   <li className="flex items-center gap-2">
                     <Phone className="h-4 w-4 shrink-0" />
                     <Link
-                      href="https://wa.me/6281284903630"
+                      href="https://wa.me/6282228262788"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-foreground"
                     >
-                      081284903630
+                      082228262788
                     </Link>
                   </li>
                 </ul>
